@@ -1,0 +1,48 @@
+{
+  "name": "大阪關西自由行 2026",
+  "short_name": "大阪旅行",
+  "description": "7天6夜大阪關西自由行行程規劃 - 含美食、地圖、預算、AI介紹",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#C0392B",
+  "theme_color": "#C0392B",
+  "lang": "zh-TW",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "查看行程",
+      "short_name": "行程",
+      "description": "開啟今日行程",
+      "url": "./index.html#itinerary"
+    },
+    {
+      "name": "美食篩選",
+      "short_name": "美食",
+      "description": "查看素食與美食推薦",
+      "url": "./index.html#food"
+    }
+  ]
+}
