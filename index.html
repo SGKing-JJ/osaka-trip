@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#C0392B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="大阪旅行">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<title>大阪關西自由行 2026</title>
+<style>
+:root{--red:#C0392B;--purple:#7B2D8B;--orange:#E67E22;--green:#27AE60;--blue:#2980B9;--bg:#f7f4f0;--white:#fff;--text:#1a1a1a;--muted:#6b6560;--border:#e2d9d0;--card:#fff;--surface:#faf7f4;}
+@media(prefers-color-scheme:dark){:root{--bg:#181512;--white:#2a2420;--text:#f0ece8;--muted:#9a9088;--border:#2e2b27;--card:#1e1b17;--surface:#161310;}}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;height:100dvh;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Hiragino Sans','Noto Sans TC','PingFang TC',sans-serif;-webkit-text-size-adjust:100%;}
+.app{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;display:flex;flex-direction:column;background:var(--bg);}@media(min-width:520px){.app{width:480px;left:50%;right:auto;transform:translateX(-50%);}}.nav-safe{flex-shrink:0;height:env(safe-area-inset-bottom,0px);background:var(--card);}
+/* Header */
+.hdr{background:var(--red);color:#fff;padding:12px 14px 9px;flex-shrink:0;box-shadow:0 2px 14px rgba(192,57,43,.45);}@media(display-mode:standalone){.hdr{padding:calc(env(safe-area-inset-top,0px) + 12px) 14px 9px;}}
+.hdr1{display:flex;justify-content:space-between;align-items:flex-start;}
+.htit{font-size:20px;font-weight:600;letter-spacing:.2px;}
+.hsub{font-size:13.5px;opacity:.85;margin-top:3px;}
+.hmeta{font-size:11.5px;opacity:.82;line-height:1.65;text-align:right;}
+.sbwrap{position:relative;margin-top:7px;display:none;}
+.sbwrap input{width:100%;border:none;border-radius:20px;padding:9px 64px 9px 16px;font-size:15px;font-family:inherit;outline:none;background:rgba(255,255,255,.95);color:#1a1a1a;}
+.sclear{position:absolute;right:42px;top:8px;background:none;border:none;cursor:pointer;color:#999;font-size:13px;}
+.cambtn{position:absolute;right:8px;top:4px;background:rgba(255,255,255,.22);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;}
+/* Content */
+.ct{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 12px;scroll-behavior:smooth;overscroll-behavior:contain;}
+/* Nav */
+.nav{flex-shrink:0;display:flex;background:var(--card);border-top:0.5px solid var(--border);box-shadow:0 -2px 14px rgba(0,0,0,.08);padding-bottom:4px;}@media(display-mode:standalone){.nav{padding-bottom:max(env(safe-area-inset-bottom,0px),4px);}}.app::after{content:"";position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;height:env(safe-area-inset-bottom,0px);background:var(--card);z-index:99;}
+.nb{flex:1;border:none;background:none;padding:6px 1px 4px;cursor:pointer;font-family:inherit;color:var(--muted);line-height:1.2;transition:all .2s;position:relative;display:flex;flex-direction:column;align-items:center;gap:0px;}.nb::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:#C0392B;border-radius:0 0 4px 4px;transition:width .25s;}.nb.on::after{width:38px;}
+.nb.on{color:var(--red);font-weight:600;}.nb.on i{font-size:22px;color:#C0392B;}.nb-icon{width:40px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:12px;transition:background .2s;}.nb.on .nb-icon{background:rgba(192,57,43,.12);}
+.nb i{display:block;font-size:20px;transition:font-size .2s;}
+.nb span{font-size:10px;display:block;margin-top:0;letter-spacing:.2px;transition:color .2s;}
+/* Modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none;align-items:flex-end;justify-content:center;}
+.ov.show{display:flex;}
+.modal{background:var(--card);border-radius:20px 20px 0 0;width:100%;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:env(safe-area-inset-bottom,0px);}
+.mdrg{width:40px;height:4px;background:var(--border);border-radius:2px;margin:12px auto 0;}
+.mhdr{display:flex;justify-content:space-between;align-items:center;padding:10px 16px 0;}
+.mtit{font-size:16.5px;font-weight:600;color:var(--text);}
+.mclose{background:var(--surface);border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+.mbody{padding:12px 18px 26px;}
+.sep{height:0.5px;background:var(--border);margin:8px 0;}
+/* Cards */
+.card{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:10px;border:0.5px solid var(--border);box-shadow:0 1px 6px rgba(0,0,0,.05);}
+.acard{background:var(--card);border-radius:16px;margin-bottom:10px;border:0.5px solid var(--border);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.atop{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:7px 13px;}
+.abody{padding:10px 13px 8px;}
+.atit{font-size:17px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:3px;}
+.aaddr{font-size:12.5px;color:var(--muted);margin-bottom:4px;}
+.adesc{font-size:13px;color:var(--text);white-space:pre-line;line-height:1.7;background:var(--surface);border-radius:10px;padding:9px 11px;margin-top:6px;}
+.aacts{display:flex;gap:6px;padding:8px 13px 11px;flex-wrap:wrap;}
+.ab{border:none;border-radius:8px;padding:7px 11px;font-size:12.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:3px;background:var(--surface);color:var(--muted);font-family:inherit;min-height:38px;}
+.pill{display:inline-block;padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:600;}
+/* Day tabs */
+.dtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:8px;}
+.dtabs::-webkit-scrollbar{display:none;}
+.dtab{flex-shrink:0;border:0.5px solid var(--border);border-radius:20px;padding:8px 15px;font-size:13.5px;cursor:pointer;font-family:inherit;background:var(--card);color:var(--muted);}
+.dtab.on{font-weight:600;color:#fff;}
+/* Filter */
+.fbrow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.fb{border:0.5px solid var(--border);border-radius:20px;padding:9px 16px;font-size:14px;cursor:pointer;background:var(--card);color:var(--muted);font-family:inherit;}
+/* Checklist */
+.chkrow{display:flex;align-items:center;gap:10px;padding:9px 0;cursor:pointer;border-bottom:0.5px solid var(--surface);}
+.chkbox{width:24px;height:24px;border-radius:6px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.chkbox.on{background:var(--green);border-color:var(--green);}
+/* Toast */
+.toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.87);color:#fff;border-radius:22px;padding:10px 22px;font-size:14px;z-index:100;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;}
+.top-btn{position:fixed;bottom:76px;right:14px;width:42px;height:42px;border-radius:50%;background:#C0392B;color:#fff;border:none;cursor:pointer;font-size:19px;display:none;align-items:center;justify-content:center;z-index:90;box-shadow:0 3px 14px rgba(192,57,43,.5);}
+@media(display-mode:standalone){.top-btn{bottom:calc(env(safe-area-inset-bottom,0px) + 76px);}}@media(display-mode:standalone){.toast{bottom:calc(env(safe-area-inset-bottom,0px) + 76px);}}
+/* Form */
+.fi{width:100%;padding:12px 14px;border:0.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;background:var(--card);color:var(--text);outline:none;margin-bottom:10px;}
+.fl{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:4px;}
+/* Progress */
+.prog{height:5px;background:var(--surface);border-radius:99px;overflow:hidden;}
+.prog-f{height:100%;border-radius:99px;transition:width .4s;}
+/* Accordion */
+.acc{background:var(--card);border-radius:12px;margin-bottom:6px;border:0.5px solid var(--border);overflow:hidden;}
+.accbtn{width:100%;text-align:left;border:none;background:none;padding:15px 16px;cursor:pointer;font-family:inherit;font-size:15px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;}
+/* Install banner */
+.install-banner{display:none;background:linear-gradient(135deg,#C0392B,#7B2D8B);color:#fff;padding:10px 14px;border-radius:12px;margin-bottom:8px;align-items:center;gap:10px;}
+.install-banner.show{display:flex;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+<div class="app" id="APP">
+  <div class="hdr">
+    <div class="hdr1">
+      <div>
+        <div class="htit">🗾 大阪關西自由行 2026</div>
+        <div class="hsub">6/21(日)—6/27(六) · 7天6夜 · 5大人同遊</div>
+      </div>
+      <div class="hmeta" style="font-size:10.5px;opacity:.8;text-align:right;line-height:1.6">🏨 Eslead<br>🚫無海鮮 🌿素食</div>
+    </div>
+    <div class="sbwrap" id="SBW">
+      <input type="text" id="SIN" placeholder="🔍 搜尋行程、景點、美食…" oninput="doSearch(this.value)">
+      <button class="sclear" id="SCL" style="display:none" onclick="clearSearch()">✕</button>
+      <button class="cambtn" onclick="openCam()" aria-label="拍照辨識"><i class="ti ti-camera" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div class="ct" id="CT" onscroll="onCtScroll(this)"></div>
+  <nav class="nav">
+    <button class="nb on" id="nb0" onclick="gTab(0)"><div class="nb-icon"><i class="ti ti-home" aria-hidden="true"></i></div><span>首頁</span></button>
+    <button class="nb" id="nb1" onclick="gTab(1)"><div class="nb-icon"><i class="ti ti-route" aria-hidden="true"></i></div><span>行程</span></button>
+    <button class="nb" id="nb2" onclick="gTab(2)"><div class="nb-icon"><i class="ti ti-bowl" aria-hidden="true"></i></div><span>美/行</span></button>
+    <button class="nb" id="nb3" onclick="gTab(3)"><div class="nb-icon"><i class="ti ti-map-2" aria-hidden="true"></i></div><span>地圖</span></button>
+    <button class="nb" id="nb4" onclick="gTab(4)"><div class="nb-icon"><i class="ti ti-heart" aria-hidden="true"></i></div><span>最愛</span></button>
+    <button class="nb" id="nb5" onclick="gTab(5)"><div class="nb-icon"><i class="ti ti-wallet" aria-hidden="true"></i></div><span>預算</span></button>
+    <button class="nb" id="nb6" onclick="gTab(6)"><div class="nb-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div><span>小幫手</span></button>
+  </nav>
+<button class="top-btn" id="topBtn" onclick="scrollToTop()" aria-label="回頂端" title="回頂端"><i class="ti ti-arrow-up" aria-hidden="true"></i></button>
+</div>
+<div class="ov" id="OV" onclick="tryClose(event)">
+  <div class="modal" id="MI" onclick="event.stopPropagation()"></div>
+</div>
+<div class="toast" id="TE"></div>
+
+<script>
+// ═══ STATE ═══
+var S={tab:0,di:0,favs:new Set(),done:new Set(),memos:{},ff:'all',lf:'all',tf:'all',sq:'',tipsOpen:null,pack:{},aiT:'',aiL:false,camT:'',camL:false,camImg:null,camMode:'receipt',translateMode:'jpn2zh',receiptData:null,jpyRate:0.22,apiKey:'',sheetRows:[],sheetUrl:'',sheetSyncTime:'',sheetErr:'',photos:{},sheetEdits:{},sheetDeleted:[],expenses:[],paidItems:null};
+var TC={transport:{icon:'🚃',label:'交通',bg:'#EBF5FB',tx:'#1A5276'},luggage:{icon:'🧳',label:'行李',bg:'#F4ECF7',tx:'#6C3483'},attraction:{icon:'⛩️',label:'景點',bg:'#FEF9E7',tx:'#7D5300'},food:{icon:'🍽️',label:'美食',bg:'#FEF5E7',tx:'#784212'},shopping:{icon:'🛍️',label:'購物',bg:'#EAFAF1',tx:'#1D6A39'},hotel:{icon:'🏨',label:'住宿',bg:'#EBF5FB',tx:'#1A5276'},info:{icon:'💡',label:'資訊',bg:'#FDEDEC',tx:'#922B21'}};
+var MC={breakfast:{label:'早餐',bg:'#FFF3CD',c:'#7D5300'},lunch:{label:'午餐',bg:'#D1ECF1',c:'#0C5460'},dinner:{label:'晚餐',bg:'#E2D9F3',c:'#451B8D'}};
+var WE=[{i:'🌥️',h:30,l:23,n:'清晨涼，備外套'},{i:'☀️',h:32,l:25,n:'USJ全天，防曬'},{i:'🌤️',h:31,l:24,n:'京都清爽'},{i:'⛅',h:33,l:26,n:'宇治備傘'},{i:'☀️',h:34,l:26,n:'防曬'},{i:'🌥️',h:33,l:25,n:'市區防曬'},{i:'☀️',h:31,l:24,n:'神戶返台！'}];
+
+function a(id,time,title,type,meal,veg,nsf,addr,q,desc){return{id,time,title,type,meal,veg,nsf,addr,map:'https://maps.google.com/?q='+encodeURIComponent(q),desc};}
+
+var DAYS=[
+{id:1,date:'6/21',wd:'日',emoji:'✈️',color:'#C0392B',title:'抵達關西・奈良看鹿・大阪',acts:[
+a('1-1','01:45','出發 桃園T1 樂桃MM030','transport',null,false,false,'桃園機場 第一航廈','桃園國際機場','MM030 01:45→關西T2 05:30，A320機型\n手提限7kg，提前2.5小時到機場，備頸枕耳塞\nVisit Japan Web 預先電子申報'),
+a('1-2','05:30','抵達 關西機場T2 入境','transport',null,false,false,'関西国際空港 第2ターミナル','Kansai International Airport Terminal 2','入境流程：入境卡→入境審查（指紋）→行李→海關\nT2→T1 免費接駁巴士5分，T1買ICOCA卡¥2,000（含¥1,000）'),
+a('1-3','06:00','🧳 行李宅配至飯店（ヤマト）','luggage',null,false,false,'関西空港 T1 ヤマト宅急便カウンター','Kansai International Airport Terminal 1','費用¥1,500~2,000/件，5件合計約¥8,000，受理6:30起\n收件：Eslead Hotel Namba East\n4-1-11 Nipponbashi, Naniwa Ward, Osaka 556-0005\n取件日6/21，需提供護照號碼+手機號'),
+a('1-4','07:00','利木津巴士 機場→奈良','transport',null,false,false,'関西空港バス乗り場→近鉄奈良駅','近鉄奈良駅','利木津巴士¥1,800/人×5=¥9,000，約80分直達\n替代：JR快速→大阪→近鐵 ¥2,400/人 約90分\n行李已寄，輕裝出發！'),
+a('1-5','08:30','早餐 中谷堂・現打麻糬','food','breakfast',true,true,'中谷堂 橋本町29 近鉄奈良駅旁','中谷堂 奈良','【一般】中谷堂：現打麻糬¥200/個，QQ彈牙！排隊5分值得！\n🌿【素食】玄米庵：純植物性玄米飯・豆腐湯定食，8:00起'),
+a('1-6','09:00','⭐ 奈良公園・1200頭鹿','attraction',null,false,false,'奈良公園 奈良市春日野町','奈良公園','1,200頭自由放養鹿！24小時免費！全球唯一！\n🦌 鹿仙貝¥150/束 📸 東大寺南大門前最美\n⚠️ 皮包拿高！鹿會頂人！清晨9點前鹿最活躍！'),
+a('1-7','09:30','東大寺大佛殿 世界遺産','attraction',null,false,false,'東大寺 406-1 Zoshicho, Nara','東大寺大仏殿','盧舍那大佛高15公尺！¥600/人×5=¥3,000 ⏰7:30-17:30\n大佛後方柱子有洞→鑽過去傳說求智慧！5人都試試！'),
+a('1-8','11:00','春日大社 3000燈籠','attraction',null,false,false,'春日大社 160 Kasuganocho, Nara','春日大社 奈良','日本三大神社！世界遺産！免費参拜，3,000多燈籠\n🛍️ 金運御守¥500・縁結び御守¥500'),
+a('1-9','13:00','午餐 柿の葉寿司・奈良名物','food','lunch',true,true,'柿の葉寿司 平宗 今御門町30-1','柿の葉寿司 平宗 奈良','【一般|含魚✅】柿の葉寿司 平宗：鮭魚・鯖魚款¥1,000~1,500\n🌿【素食⭐】夢風廣場 あをがき（春日野町16）精進料理¥1,200~1,800'),
+a('1-10','16:00','近鐵特急 奈良→難波','transport',null,false,false,'近鉄奈良駅→大阪難波駅','大阪難波駅','近鐵特急（推薦）：約50分¥1,200/人，有固定座位\n普通：約70分¥680/人，紅眼班機後建議特急'),
+a('1-11','17:30','🏨 Check-in Eslead Hotel','hotel',null,false,false,'4-1-11 Nipponbashi, Naniwa Ward, Osaka 556-0005','Eslead Hotel Namba East Osaka','道頓堀10分・心齋橋12分・黑門市場5分・難波駅8分\n行李已宅配到，未到請洽前台，Check-in 15:00起'),
+a('1-12','19:00','晚餐 道頓堀夜景','food','dinner',true,true,'道頓堀 中央区 大阪','道頓堀 大阪','【一般|含魚✅】金龍拉麵 道頓堀本店（24H）¥790\n🌿【素食】Papachari Cafe：植物性漢堡・全素麵食\n📸 固力果跑步人（戎橋）日落後7~8點霓虹最美！'),
+]},
+{id:2,date:'6/22',wd:'一',emoji:'🎢',color:'#7B2D8B',title:'大阪環球影城 USJ 全攻略',acts:[
+a('2-1','07:00','早餐 便利商店快速','food','breakfast',true,true,'難波周辺 コンビニ','難波 大阪','【一般】Lawson/7-11：飯糰¥130，熱咖啡¥100\n🌿【素食】昆布/梅干飯糰¥130，豆漿¥160，⏰目標8:30前到USJ！'),
+a('2-2','08:00','前往USJ 地鐵+JR桜島線','transport',null,false,false,'難波→西九条→ユニバーサルシティ駅','Universal City Station Osaka','難波→千日前線→大阪→JR環狀→西九条→JR桜島→ユニバーサルシティ\n約25~30分 ¥280/人×5=¥1,400，📱開好USJ APP搶Area Entry！'),
+a('2-3','08:30','💡 USJ購票・Express Pass攻略','info',null,false,false,'Universal Studios Japan 2-1-33 Sakurajima Osaka','Universal Studios Japan Osaka','一日票¥9,400/人×5=¥47,000（usj.co.jp/Klook/KKday）\nExpress Pass（超任+哈利+咚奇剛）¥8,000~14,000/人，提前1~2月購！\n⚠️超任→APP另搶「入場整理券Area Entry」！開園前30分放號！'),
+a('2-4','09:00','⭐ 超級任天堂世界','attraction',null,false,false,'Super Nintendo World USJ','Super Nintendo World USJ','【必玩】Mario Kart★★★★★（Express Pass強推，否則排120分）\n【必玩】耀西冒險★★★★\n🍄 蘑菇包¥600 🛍️ Mario帽子¥2,500（入場先衝！）'),
+a('2-5','11:30','⭐ 咚奇剛 Donkey Kong Country','attraction',null,false,false,'Donkey Kong Country USJ','Universal Studios Japan','【必玩】Mine-Cart Madness★★★★★（礦車翻轉俯衝！Express Pass含）\n一般排90~120分！DK桶爆米花桶¥2,400，DK帽子¥3,000'),
+a('2-6','13:00','午餐 The Three Broomsticks','food','lunch',true,true,'The Three Broomsticks USJ','Universal Studios Japan','【一般|含魚✅】Fish & Chips ¥1,400\n奶油啤酒（無酒精）¥900 必喝！熱/冷/霜淇淋三種！\n🌿【素食】Vivo! Kitchen：告知「vegetarian please」'),
+a('2-7','14:30','🧙 哈利波特魔法世界','attraction',null,false,false,'Wizarding World of Harry Potter USJ','Wizarding World Harry Potter USJ Osaka','【必玩】禁忌之旅4D★★★★★（Express Pass強推）\n【必玩】Flight of the Hippogriff雲霄飛車\n🪄 魔法棒¥4,800 | 🍺 奶油啤酒¥900 | 🍫 巧克力蛙¥1,500'),
+a('2-8','19:00','晚餐 スシロー 難波','food','dinner',true,true,'スシロー 難波駅前店','スシロー 難波','¥110/盤！✅含魚：鮭魚・鮪魚・星鰻・鰤魚・玉子燒\n⛔避免：甜蝦・扇貝（ホタテ）・蟹・章魚\n🌿【素食】玉子・納豆軍艦・稻荷・小黃瓜'),
+]},
+{id:3,date:'6/23',wd:'二',emoji:'⛩️',color:'#C0392B',title:'京都 伏見稲荷・清水寺・購物',acts:[
+a('3-1','07:30','前往京都 阪急電鐵','transport',null,false,false,'難波→梅田→京都河原町','京都河原町駅','阪急電鐵：梅田→河原町 約47分 ¥410/人×5=¥2,050\n抵達後購買京都市バス一日券¥600/人（全市巴士無限搭！）'),
+a('3-2','08:30','早餐 INODA COFFEE 1940老舖','food','breakfast',true,true,'INODA COFFEE本店 堺町通三条下ル道祐町140','イノダコーヒ 本店 京都','【一般】INODA COFFEE 1940年創業！京都早餐套餐¥1,200（咖啡+土司+蛋）\n🌿【素食】MUMOKUTEKI Cafe（中京区骨屋町225）有機素食早餐¥1,000~1,400'),
+a('3-3','09:00','⭐ 伏見稲荷大社 千本鳥居','attraction',null,false,false,'伏見稲荷大社 68 Fukakusa Yabunouchicho Fushimi Ward Kyoto','伏見稲荷大社 京都','數千朱紅鳥居！全年免費！24小時開放！\n路線：表參道→千本鳥居（必拍！）→四ツ辻展望點\n📸 側面45度拍鳥居透視效果最美！清晨9點前人少！'),
+a('3-4','11:00','清水寺・産寧坂購物','attraction',null,false,false,'清水寺 1-294 Kiyomizu Higashiyama Ward Kyoto','清水寺 京都','世界遺産！¥500/人×5=¥2,500 ⏰6:00-18:00\n音羽の瀧：只選一道（學問/愛情/長壽）\n産寧坂：よーじや・清水焼・扇子'),
+a('3-5','13:00','午餐 錦市場「京都の台所」','food','lunch',true,true,'錦市場 中京区錦小路通 京都','錦市場 京都','400公尺傳統市場！漬物免費試吃！\n【一般|含魚✅】市場各攤：魚類烤串，はなまるうどん¥280~480\n🌿【素食⭐】錦の豆水楼：湯豆腐套餐¥1,500~2,500，完全素食！'),
+a('3-6','14:30','🛍️ 新京極・寺町通大採購','shopping',null,false,false,'新京極商店街 中京区 京都','新京極 京都','Loft・ドン・キホーテ（免稅）・GU・VILLAGE VANGUARD\n💰 限定：京都限定Kit Kat（抹茶・焙茶）・よーじや限定彩妝\n💡 超過¥5,500退稅！帶護照！'),
+a('3-7','16:00','🕹️ 夾娃娃機 Round1 三条','shopping',null,false,false,'Round1 京都三条店 中京区','Round1 京都三条','夾娃娃機¥100~/次！鬼滅・SPY×FAMILY・寶可夢・馬力歐\n扭蛋¥300~500，太鼓の達人・maimai・プリクラ'),
+a('3-8','18:30','晚餐 スシロー 京都','food','dinner',true,true,'スシロー 京都河原町店','スシロー 京都河原町','¥110/盤！✅含魚：鮭魚・鮪魚・鰤魚・玉子燒\n⛔避免：甜蝦・扇貝・蟹・章魚\n🌿【素食】玉子・納豆軍艦・稻荷'),
+]},
+{id:4,date:'6/24',wd:'三',emoji:'🎮',color:'#E67E22',title:'京都 二条城・銀閣寺・任天堂博物館',acts:[
+a('4-1','07:30','早餐 京都老舖喫茶','food','breakfast',true,true,'京都市中心部','京都市','⚠️ 今天14:30任天堂博物館！注意時間！\n【一般】Inoda Coffee 本店：京都早餐套餐¥1,200\n🌿【素食】Mumokuteki Cafe：有機素食早餐¥1,000~1,400'),
+a('4-2','09:00','⭐ 二条城 鶯張り地板','attraction',null,false,false,'二条城 541 Nijojocho Nakagyo Ward Kyoto 604-8301','二条城 京都','德川家康建造！世界遺産！¥1,000/人×5=¥5,000 ⏰8:45-17:00\n二の丸御殿：鶯張り地板（踩踏發鳴聲！防刺客！）\n二の丸庭園：江戶時代枯山水，📸 東大手門最美！'),
+a('4-3','10:45','哲学の道・銀閣寺 禪意美學','attraction',null,false,false,'銀閣寺 2 Ginkakujicho Sakyo Ward Kyoto','哲学の道 京都','【哲学の道】免費，沿疏水道2km散步，咖啡小店林立\n【銀閣寺】¥500/人×5=¥2,500 ⏰8:30-17:00 世界遺産！\n足利義政建造，銀沙灘・向月台砂堆，侘寂美學典範！'),
+a('4-4','12:00','午餐 南禅寺エリア','food','lunch',true,true,'南禅寺エリア 左京区 京都','南禅寺 京都','【一般|含魚✅】菊水（南禅寺境内）：湯豆腐・白身魚定食，磚造水路閣在旁！\n🌿【素食⭐】順正（南禅寺附近）：湯豆腐専門・精進料理¥2,000~3,000'),
+a('4-5','13:30','前往宇治（任天堂博物館）','transport',null,false,false,'南禅寺→京都駅→近鉄小倉駅','近鉄小倉駅 宇治','地鐵→京都駅→近鐵京都線→近鐵小倉駅，步行10分到博物館\n約45~55分鐘，¥500/人×5=¥2,500\n⚠️ 13:30出發確保14:20前到！QR Code預約票先打開！'),
+a('4-6','14:30','⭐⭐ 任天堂博物館（2026/6/24 週三）','attraction',null,false,false,'任天堂ミュージアム 56-6 Oguracho Uji City Kyoto','任天堂ミュージアム 宇治市小倉','2024年新開幕！完全預約制！宇治市小倉（前廠房改建）\n🎟️ ¥3,300/人×5=¥16,500（已付NT$3,300）\n歷代家用機展示・超大互動裝置・入場贈遊戲幣！\n🛍️ 限定T-shirt¥3,300・復刻FC鑰匙圈・限定毛巾（先衝售罄快！）'),
+a('4-7','16:30','宇治 中村藤吉・抹茶採購','shopping',null,false,false,'中村藤吉 宇治本店 20 Ujiichiban Uji Kyoto','中村藤吉 宇治本店','宇治=日本最著名抹茶產地！\n抹茶生茶凍（生茶ゼリイ）¥1,100 必吃！\n帶回台灣：宇治抹茶禮盒・抹茶巧克力・宇治茶筅'),
+a('4-8','19:30','晚餐 新世界串炸・返大阪','food','dinner',true,true,'串かつ だるま 新世界総本店 恵美須東2-3-9','串かつだるま 新世界 大阪','【一般|含魚✅】串かつ だるま：二度漬け禁止！魚板串・白身魚串可食¥150~400/串\n🌿【素食】Vegan Ramen MuMu：豆漿湯底・植物肉叉燒\n🗼 通天閣：飯後散步欣賞夜景（免費）'),
+]},
+{id:5,date:'6/25',wd:'四',emoji:'🛍️',color:'#27AE60',title:'大阪 安倍晴明神社・西松屋・心齋橋',acts:[
+a('5-1','08:00','早餐 難波周邊','food','breakfast',true,true,'難波 大阪','難波 大阪','【一般⭐】コメダ珈琲：購飲料送厚片土司！飲料¥500=飲料+土司！超值！\n🌿【素食】2Foods 難波：全植物性沙拉・豆乳拿鐵¥600~900'),
+a('5-2','09:30','⭐ 安倍晴明神社 阿倍野','attraction',null,false,false,'安倍晴明神社 5-16 Abenomotocho Abeno Ward Osaka 545-0045','安倍晴明神社 大阪 阿倍野区','供奉日本最著名陰陽師 安倍晴明（921~1005）！誕生地！\n地鐵天王寺駅步行約10分鐘\n五芒星御守¥500・限定御朱印¥400，FATE粉絲必朝聖！'),
+a('5-3','10:30','⭐ 西松屋 嬰幼童超便宜','shopping',null,false,false,'西松屋 大阪','西松屋 大阪','台灣買貴2~3倍！嬰兒衣¥200~600/件・幼兒童裝¥300~1,000\n玩具・嬰兒用品¥500~2,000，6月底換季清倉更便宜！帶壓縮袋！'),
+a('5-4','12:30','午餐 心齋橋周邊','food','lunch',true,true,'心齋橋 中央区 大阪','心斎橋 大阪','【一般|含魚✅】鶴橋風月 お好み焼き：含魚板版¥1,200\n【一般】横綱拉麵：豚骨醬油¥890\n🌿【素食⭐】2Foods 心齋橋：全植物性漢堡・炸雞（植物肉）¥1,200~1,800'),
+a('5-5','14:00','🛍️ 心齋橋・美國村大掃貨','shopping',null,false,false,'心齋橋筋商店街 中央区 大阪','心斎橋筋商店街 大阪','ドン・キホーテ（24H免稅）・LOFT・GU・ZARA\n大阪限定Pretz（大阪燒口味）・限定Kit Kat（紅豆奶油）\n💡 超過¥5,500退稅！帶護照！'),
+a('5-6','17:00','🕹️ Round1 難波 夾娃娃機','shopping',null,false,false,'Round1 難波店 中央区難波3-8-9','Round1 難波 大阪','難波駅A5出口步行3分！\n夾娃娃機：鬼滅・呪術廻戦・寶可夢・SPY×FAMILY\n扭蛋：食玩・手機掛件¥400~600'),
+a('5-s1','17:30','🍣 スシロー迴轉壽司 難波','food','dinner',true,true,'スシロー 難波駅前店 日本橋','スシロー 難波 大阪','日本最受歡迎迴轉壽司！¥110/盤起！APP可預約候位省等待時間！\n\n✅【含魚無海鮮可選】\n鮭魚・鮪魚大腹・星鰻・鰤魚・玉子燒・烤雞・雞唐揚\n⛔避免：甜蝦（えび）・扇貝（ホタテ）・蟹・章魚\n\n🌿【素食可選】\n玉子壽司・納豆軍艦・稻荷・小黃瓜細卷・豆腐味噌湯\n\n🎰 集5盤轉扭蛋！\n💡 官方APP「スシロー」可預約，等候時間顯示在APP上'),
+a('5-7','19:00','晚餐 黑門市場周邊','food','dinner',true,true,'黒門市場 日本橋2丁目4 大阪','黒門市場 大阪','飯店步行5分！【一般|含魚✅】各攤：新鮮烤魚・白身魚串¥200~500\n🌿【素食】悠然 Yuzen：豆腐・蔬菜套餐¥1,200~1,800'),
+]},
+{id:6,date:'6/26',wd:'五',emoji:'🏯',color:'#8E44AD',title:'大阪 大阪城・梅田・ハルカス',acts:[
+a('6-1','08:00','早餐 コメダ珈琲','food','breakfast',true,true,'コメダ珈琲 難波周辺','コメダ珈琲 難波','⚠️ 今晚打包行李！明天退房去神戶！\n【一般⭐】コメダ：購飲料送土司！大阪早晨文化！\n🌿【素食】昆布飯糰+豆漿¥300'),
+a('6-2','09:30','大阪城・天守閣','attraction',null,false,false,'大阪城 1-1 Osakajo Chuo Ward Osaka','大阪城 大阪','¥600/人×5=¥3,000 ⏰9:00-17:00，豐臣秀吉建造！\n天守閣8層博物館+展望台，西側護城河全景最美！\n豐國神社：供奉豐臣秀吉（求出世運！）'),
+a('6-3','11:00','でんでんタウン 動漫・電器','shopping',null,false,false,'日本橋でんでんタウン 浪速区 大阪','でんでんタウン 大阪','大阪秋葉原！駿河屋：中古Switch遊戲¥500~2,000\nAnimate：動漫周邊正品，Joshin：電器量販免稅'),
+a('6-4','12:30','午餐 くら寿司 集盤送扭蛋','food','lunch',true,true,'くら寿司 難波店','くら寿司 難波 大阪','無添加！¥110/盤！集5盤送扭蛋！100%中！\n✅【含魚無海鮮】鮭魚・鮪魚・星鰻・鰤魚\n🌿【素食】玉子・納豆軍艦・稻荷¥110'),
+a('6-5','14:00','梅田 Grand Front・HEP FIVE','shopping',null,false,false,'梅田 北区 大阪','梅田 大阪','Grand Front：設計感複合商業，限定品多\nHEP FIVE：8F屋頂紅色摩天輪¥600（夕陽美！）\n阪急百貨B2：高質感食品伴手禮'),
+a('6-6','17:00','あべのハルカス 360度夜景','attraction',null,false,false,'あべのハルカス 1-1-43 Abenosuji Abeno Ward Osaka','あべのハルカス 大阪','日本最高300公尺！60F展望台¥2,000/人×5=¥10,000 ⏰9:00-22:00\n17:00→夕陽→18:30完整大阪夜景！'),
+a('6-7','20:00','晚餐 鶴橋燒肉・最後大阪晚餐！','food','dinner',true,true,'鶴橋 東成区 大阪','鶴橋 大阪','【一般⭐】鶴橋燒肉街：地鐵鶴橋駅出口！和牛・牛舌¥2,000~3,000\n🌿【素食】大地之館：純素日式宴席¥2,000~3,000\n⚠️ 回飯店後打包行李！明早退房！'),
+]},
+{id:7,date:'6/27',wd:'六',emoji:'🚢',color:'#2980B9',title:'神戶遊玩→神戶機場→返台',acts:[
+a('7-1','07:00','早餐 旅程最後早餐','food','breakfast',true,true,'難波 大阪','難波 大阪','⏰長榮BR175 19:00起飛！07:00早餐→08:00退房→09:30神戶\n先去神戶機場存行李！→輕裝玩→14:30往機場→15:00到機場\n【一般/🌿素食】便利商店飯糰+豆漿¥300'),
+a('7-2','08:00','🧳 退房 & 行李存神戶機場','luggage',null,false,false,'神戸空港 コインロッカー','神戸空港','【⭐推薦】先去神戶機場存行李！\n流程：退房→三宮→ポートライナー18分→神戶機場→存行李→回三宮！\nコインロッカー：小¥300/中¥400/大¥700，5件合計≈¥3,500~4,000'),
+a('7-3','09:00','前往神戶 阪神電鐵','transport',null,false,false,'難波→梅田→神戸三宮駅','神戸三宮駅','阪神電鐵：梅田→三宮 約30分 ¥430/人，5人合計¥2,150\n先去機場存行李！三宮→ポートライナー→神戶機場18分 ¥340'),
+a('7-4','10:00','北野異人館街 歐風散步','attraction',null,false,false,'北野異人館街 中央区 神戸市','北野異人館街 神戸','明治時代歐洲建築群！三宮步行20分（上坡）\n風見鷄の館¥500・萌黄の館¥400，外觀免費欣賞也值得！'),
+a('7-5','12:00','午餐 南京町中華街','food','lunch',true,true,'南京町 中央区 神戸市','南京町 神戸','日本三大中華街！三宮步行10分\n【一般】老祥記 豚まん：排隊名店 3個¥630\n🌿【素食】蓮の葉：素食中華餃子・炒飯¥800~1,500'),
+a('7-6','13:30','神戶港 Mosaic・最後海景','attraction',null,false,false,'神戸ハーバーランド モザイク 神戸市','神戸ハーバーランドモザイク','旅程最後最美海景！海邊散步道（免費）吹海風！\n🛍️ 神戶プリン¥350・モロゾフ プリン¥300・風月堂ワッフル¥800\n⚠️ 14:30前出發去機場！'),
+a('7-7','14:30','前往神戶機場 ポートライナー','transport',null,false,false,'三宮駅→神戸空港','神戸空港 UKB','三宮→神戶機場：約18分 ¥340/人×5=¥1,700，每10~12分一班\n15:00取行李→15:30長榮Check-in→17:00通關→17:30候機→19:00起飛！'),
+a('7-8','19:00','✈️ 長榮 BR175 返台！','transport',null,false,false,'神戸空港（UKB）→桃園T2（TPE）','神戸空港','長榮航空 BR175，神戶19:00→桃園T2 20:55，A321機型\n返台後：桃園T2→高鐵桃園站→嘉義（末班約22:40，提前確認！）\n🎉 感謝這7天6夜美好的大阪關西之旅！'),
+]},
+];
+
+var DEFAULT_PAID=[
+  {label:'✈️ 機票（去回程）',amt:88858,unit:'NT$',note:'樂桃MM030+長榮BR175・5人合計'},
+  {label:'🏨 住宿 6晚',amt:29463,unit:'NT$',note:'Eslead Hotel Namba East・5人合計'},
+  {label:'🎮 任天堂博物館',amt:3300,unit:'NT$',note:'完全預約制・5人合計'},
+  {label:'🎢 USJ訂金（一半）',amt:5500,unit:'NT$',note:'環球影城地陪・5人合計'},
+];
+
+var JEST={transport:20000,food:40000,attr:15000,shopping:30000,luggage:8000,misc:5000};
+var JEST_L={transport:'🚃 交通費',food:'🍽️ 餐食費',attr:'⛩️ 景點門票',shopping:'🛍️ 購物費',luggage:'🧳 行李宅配',misc:'💊 雜費'};
+var JEST_N={transport:'ICOCA+JR+近鐵+京都巴士',food:'約¥1,200/人×3餐×7天',attr:'USJ剩餘+大阪城+清水寺等',shopping:'伴手禮+藥妝+衣物',luggage:'宅急便+神戶機場存放',misc:'藥品+緊急+扭蛋'};
+var TIPS=[
+{t:'🆘 緊急聯絡',items:[{q:'報警',a:'110（可要求中文翻譯員）'},{q:'救護車',a:'119（免費）'},{q:'遺失護照',a:'大阪台辦：06-6443-8481'},{q:'飯店',a:'Eslead Hotel: +81-6-6643-0035'},{q:'台灣緊急',a:'外交部：+886-800-085-095'}]},
+{t:'🚇 交通攻略',items:[{q:'ICOCA卡',a:'¥2,000購（含¥1,000），關西交通通用'},{q:'大阪↔京都',a:'阪急¥410/47分或JR新快速¥580/15分'},{q:'大阪↔神戶',a:'阪神電鐵梅田→三宮¥430/30分'},{q:'神戶→神戶機場',a:'ポートライナー¥340/18分'}]},
+{t:'🍽️ 飲食日語',items:[{q:'無海鮮',a:'えびかにたこホタテが食べられません'},{q:'魚可以',a:'魚は大丈夫です'},{q:'素食',a:'肉と卵と乳製品が食べられません'},{q:'有素食嗎',a:'ベジタリアンメニューはありますか？'},{q:'不要山葵',a:'わさびなし'}]},
+{t:'💰 金錢・退稅',items:[{q:'匯率',a:'¥100≈NT$21~23（2026預估）'},{q:'ATM',a:'7-Eleven/郵局ATM，手續費¥220'},{q:'退稅',a:'同日同店¥5,500以上，帶護照'},{q:'消費稅',a:'10%（外食8%），退稅後回饋約10%'}]},
+{t:'📱 必裝APP',items:[{q:'交通',a:'Google Maps（日本電車轉乘）'},{q:'翻譯',a:'Google翻譯（鏡頭掃菜單！）'},{q:'USJ',a:'USJ官方APP（搶Area Entry！）'},{q:'天氣',a:'tenki.jp（最準確）'}]},
+];
+var PACK=[
+{cat:'📄 重要文件',items:['護照（效期6個月以上）','信用卡/金融卡（2張）','日圓現金（¥50,000/人）','機票電子票（MM030・BR175）','飯店確認信','海外旅遊保險保單']},
+{cat:'👗 衣物',items:['輕薄上衣×7件','下裝×4件','內衣褲×7套','薄外套（USJ冷氣）','舒適步行鞋（重要！）','摺疊雨傘']},
+{cat:'💊 藥品',items:['腸胃藥（必備！）','感冒藥','止痛藥','OK繃+消毒棉','個人處方藥（足量）']},
+{cat:'📱 電子設備',items:['手機+充電線×2','行動電源20000mAh','相機+記憶卡','轉接頭（日本100V）']},
+{cat:'☀️ 日用品',items:['防曬乳SPF50+','墨鏡+帽子','小毛巾（必備）','壓縮袋（帶回戰利品）']},
+];
+var MAP_PINS=[{name:'奈良',x:79,y:30,c:'#C0392B',q:'奈良公園'},{name:'大阪難波',x:56,y:55,c:'#E74C3C',q:'Eslead Hotel Namba East Osaka'},{name:'USJ',x:45,y:63,c:'#7B2D8B',q:'Universal Studios Japan'},{name:'京都',x:43,y:26,c:'#C0392B',q:'京都市'},{name:'宇治',x:52,y:38,c:'#E67E22',q:'任天堂ミュージアム 宇治'},{name:'神戶',x:28,y:44,c:'#2980B9',q:'神戸三宮駅'},{name:'神戶機場',x:21,y:61,c:'#1A5276',q:'神戸空港'},{name:'關西機場',x:64,y:79,c:'#C0392B',q:'Kansai International Airport'}];
+// ═══ STATE PERSISTENCE ═══
+function loadState(){
+  try{
+    var f=JSON.parse(localStorage.getItem('osaka-favs')||'[]');
+    f.forEach(function(id){S.favs.add(id);});
+    var d=JSON.parse(localStorage.getItem('osaka-done')||'[]');
+    d.forEach(function(id){S.done.add(id);});
+    S.memos=JSON.parse(localStorage.getItem('osaka-memos')||'{}');
+    S.pack=JSON.parse(localStorage.getItem('osaka-pack')||'{}');
+    S.apiKey=localStorage.getItem('osaka-apikey')||'';
+    var sr=localStorage.getItem('osaka-sheet-rows');
+    if(sr) S.sheetRows=JSON.parse(sr);
+    S.sheetUrl=localStorage.getItem('osaka-sheet-url')||'';
+    S.sheetSyncTime=localStorage.getItem('osaka-sheet-time')||'';
+    S.sheetErr='';
+    try{var ex=localStorage.getItem('osaka-expenses');if(ex)S.expenses=JSON.parse(ex);}catch(e){}
+    try{var pi=localStorage.getItem('osaka-paid-items');if(pi)S.paidItems=JSON.parse(pi);}catch(e){}
+    try{var ph=localStorage.getItem('osaka-photos');if(ph)S.photos=JSON.parse(ph);}catch(e){}
+    try{var se=localStorage.getItem('osaka-sheet-edits');if(se)S.sheetEdits=JSON.parse(se);}catch(e){}
+    try{var sd=localStorage.getItem('osaka-sheet-deleted');if(sd)S.sheetDeleted=JSON.parse(sd);}catch(e){}
+    var jest=localStorage.getItem('osaka-jest');
+    if(jest)Object.assign(JEST,JSON.parse(jest));
+  }catch(e){}
+}
+function saveState(){
+  try{
+    localStorage.setItem('osaka-favs',JSON.stringify([...S.favs]));
+    localStorage.setItem('osaka-done',JSON.stringify([...S.done]));
+    localStorage.setItem('osaka-memos',JSON.stringify(S.memos));
+    localStorage.setItem('osaka-pack',JSON.stringify(S.pack));
+    localStorage.setItem('osaka-apikey',S.apiKey);
+    if(S.sheetRows) localStorage.setItem('osaka-sheet-rows',JSON.stringify(S.sheetRows));
+    if(S.sheetUrl) localStorage.setItem('osaka-sheet-url',S.sheetUrl);
+    if(S.sheetSyncTime) localStorage.setItem('osaka-sheet-time',S.sheetSyncTime);
+    try{localStorage.setItem('osaka-expenses',JSON.stringify(S.expenses||[]));}catch(e){}
+    try{if(S.paidItems)localStorage.setItem('osaka-paid-items',JSON.stringify(S.paidItems));}catch(e){}
+    try{if(Object.keys(S.photos).length)localStorage.setItem('osaka-photos',JSON.stringify(S.photos));}catch(e){}
+    try{if(Object.keys(S.sheetEdits).length)localStorage.setItem('osaka-sheet-edits',JSON.stringify(S.sheetEdits));}catch(e){}
+    try{localStorage.setItem('osaka-sheet-deleted',JSON.stringify(S.sheetDeleted));}catch(e){}
+    localStorage.setItem('osaka-jest',JSON.stringify(JEST));
+  }catch(e){}
+}
+
+// ═══ HELPERS ═══
+function pill(bg,c,t){return '<span class="pill" style="background:'+bg+';color:'+c+'">'+t+'</span>';}
+function pad2(n){return n<10?'0'+n:''+n;}
+function findAct(id){var r=null;DAYS.forEach(function(d){d.acts.forEach(function(a){if(a.id===id)r={act:a,day:d};});});return r;}
+function showToast(msg){var e=document.getElementById('TE');e.textContent=msg;e.style.opacity='1';clearTimeout(window._tt);window._tt=setTimeout(function(){e.style.opacity='0';},2500);}
+function showModal(html){document.getElementById('MI').innerHTML=html;document.getElementById('OV').className='ov show';}
+function closeModal(){document.getElementById('OV').className='ov';}
+function tryClose(e){if(e.target===document.getElementById('OV'))closeModal();}
+
+// ═══ NAVIGATION ═══
+function gTab(n){
+  S.tab=n;S.sq='';S.sheetErr='';
+  for(var i=0;i<7;i++)document.getElementById('nb'+i).className='nb'+(i===n?' on':'');
+  var sb=document.getElementById('SBW');
+  sb.style.display=n===1?'block':'none';
+  if(n!==1){var si=document.getElementById('SIN');if(si)si.value='';}
+  render();
+}
+
+// ═══ RENDER ═══
+function render(){
+  var c=document.getElementById('CT');
+  if(S.tab===0)c.innerHTML=rHome();
+  else if(S.tab===1)c.innerHTML=rItin();
+  else if(S.tab===2)c.innerHTML=rFood();
+  else if(S.tab===3)c.innerHTML=rMap();
+  else if(S.tab===4)c.innerHTML=rFavs();
+  else if(S.tab===5)c.innerHTML=rBudget();
+  else c.innerHTML=rTips();
+}
+
+function rHome(){
+  var tgt=new Date('2026-06-21T01:45:00+08:00'),now=new Date(),diff=Math.max(0,tgt-now);
+  var d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s2=Math.floor(diff%60000/1000);
+  var total=DAYS.reduce(function(s,d){return s+d.acts.length;},0),dn=S.done.size,pct=Math.round(dn/total*100);
+  var ov=DAYS.map(function(dd,i){
+    var foods=dd.acts.filter(function(a){return a.type==='food';}).length;
+    var dc=dd.acts.filter(function(a){return S.done.has(a.id);}).length;
+    return '<div style="display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:0.5px solid var(--border);cursor:pointer" onclick="gTab(1);S.di='+i+';render()">'
+      +'<div style="min-width:42px;text-align:center;background:'+dd.color+';border-radius:8px;padding:5px 3px">'
+      +'<div style="font-size:14px;font-weight:600;color:#fff">'+dd.date+'</div>'
+      +'<div style="font-size:10px;color:rgba(255,255,255,.85)">週'+dd.wd+'</div></div>'
+      +'<div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">'+dd.emoji+' '+dd.title+'</div>'
+      +'<div style="display:flex;gap:4px;margin-top:3px">'+pill('#f0f0f0','#555',dd.acts.length+'項')
+      +pill('#D1ECF1','#0C5460',foods+'餐')+(dc>0?pill('#E8F5E9','#27AE60',dc+'完成'):'')+'</div></div>'
+      +'<i class="ti ti-chevron-right" aria-hidden="true" style="color:var(--muted);font-size:16px"></i></div>';
+  }).join('');
+  return '<div style="background:linear-gradient(160deg,#C0392B,#7B2D8B);color:#fff;border-radius:14px;padding:16px;margin-bottom:8px">'
+    +'<div style="font-size:13px;opacity:.85;text-align:center;margin-bottom:10px">⏳ 距離出發還有</div>'
+    +'<div style="display:flex;justify-content:center;align-items:baseline;gap:8px;font-size:32px;font-weight:600">'
+    +'<span>'+pad2(d)+'</span><span style="font-size:13px;opacity:.7">天</span>'
+    +'<span>'+pad2(h)+'</span><span style="font-size:13px;opacity:.7">時</span>'
+    +'<span>'+pad2(m)+'</span><span style="font-size:13px;opacity:.7">分</span>'
+    +'<span>'+pad2(s2)+'</span><span style="font-size:13px;opacity:.7">秒</span></div>'
+    +'<div style="font-size:13px;opacity:.8;text-align:center;margin-top:8px">✈️ 2026/6/21 01:45 桃園T1 樂桃MM030</div></div>'
+    +'<div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:6px">'
+    +'<span style="font-size:13px;font-weight:600">📊 行程完成度</span>'
+    +'<span style="font-size:12px;color:#C0392B;font-weight:600">'+dn+'/'+total+' ('+pct+'%)</span></div>'
+    +'<div class="prog"><div class="prog-f" style="width:'+pct+'%;background:#C0392B"></div></div>'
+    +'<div style="font-size:13px;color:var(--muted);margin-top:5px">在行程卡片點「打卡」追蹤進度</div></div>'
+    +'<div class="card"><div style="font-size:13px;font-weight:600;margin-bottom:10px">✈️ 航班資訊</div>'
+    +'<div style="background:var(--surface);border-radius:10px;padding:10px;margin-bottom:7px">'
+    +'<div style="font-size:10px;color:#E67E22;font-weight:600">去程 2026/6/21（日）</div>'
+    +'<div style="font-size:13px;font-weight:600;margin:3px 0">樂桃航空 MM030 · A320</div>'
+    +'<div style="display:flex;align-items:center;gap:6px"><div><div style="font-size:20px;font-weight:600">01:45</div><div style="font-size:12px;color:var(--muted)">桃園 T1</div></div>'
+    +'<div style="flex:1;text-align:center;font-size:13px;color:var(--muted)">✈️ ~2.5hr</div>'
+    +'<div style="text-align:right"><div style="font-size:20px;font-weight:600">05:30</div><div style="font-size:12px;color:var(--muted)">關西 T2</div></div></div></div>'
+    +'<div style="background:var(--surface);border-radius:10px;padding:10px">'
+    +'<div style="font-size:10px;color:#2980B9;font-weight:600">回程 2026/6/27（六）</div>'
+    +'<div style="font-size:13px;font-weight:600;margin:3px 0">長榮航空 BR175 · A321</div>'
+    +'<div style="display:flex;align-items:center;gap:6px"><div><div style="font-size:20px;font-weight:600">19:00</div><div style="font-size:12px;color:var(--muted)">神戶機場</div></div>'
+    +'<div style="flex:1;text-align:center;font-size:13px;color:var(--muted)">✈️ ~2hr</div>'
+    +'<div style="text-align:right"><div style="font-size:20px;font-weight:600">20:55</div><div style="font-size:12px;color:var(--muted)">桃園 T2</div></div></div></div></div>'
+    +'<div class="card"><div style="font-size:13px;font-weight:600;margin-bottom:8px">📅 7天總覽（點擊切換）</div>'+ov+'</div>';
+}
+
+function rItin(){
+  if(S.sq.trim())return rSearch();
+  var d=DAYS[S.di],w=WE[S.di];
+  var tabs=DAYS.map(function(dd,i){return '<button class="dtab'+(i===S.di?' on':'')+'" onclick="S.di='+i+';render()" style="'+(i===S.di?'background:'+dd.color+';border-color:'+dd.color+';':'')+'">'+ dd.emoji+' '+dd.date+'</button>';}).join('');
+  return '<div class="dtabs">'+tabs+'</div>'
+    +'<div class="card" style="border-left:3px solid '+d.color+';margin-bottom:8px">'
+    +'<div style="display:flex;justify-content:space-between;align-items:flex-start">'
+    +'<div><div style="font-size:11px;color:'+d.color+';font-weight:600">DAY '+d.id+' · 2026/6/'+d.date.slice(2)+' 週'+d.wd+'</div>'
+    +'<div style="font-size:15px;font-weight:600;color:var(--text)">'+d.emoji+' '+d.title+'</div></div>'
+    +'<div style="text-align:center;background:var(--surface);border-radius:10px;padding:6px 10px;min-width:62px">'
+    +'<div style="font-size:20px">'+w.i+'</div><div style="font-size:13px;color:#C0392B;font-weight:600">'+w.h+'°/'+w.l+'°</div>'
+    +'<div style="font-size:12px;color:var(--muted)">'+w.n+'</div></div></div>'
+    +'<div style="margin-top:8px"><div style="font-size:13px;color:var(--muted);margin-bottom:3px">📝 備忘錄</div>'
+    +'<textarea style="width:100%;padding:7px;border:0.5px solid var(--border);border-radius:8px;font-size:12.5px;font-family:inherit;resize:none;background:var(--card);color:var(--text);outline:none" rows="2" oninput="S.memos['+d.id+']=this.value;saveState()">'+(S.memos[d.id]||'')+'</textarea>'
+    +'<button onclick="openAdd('+d.id+')" style="width:100%;margin-top:7px;border:none;border-radius:9px;padding:9px;background:'+d.color+';color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">＋ 新增行程到此天</button>'
+    +'</div></div>'
+    +d.acts.map(function(a){return actCard(a,d.color,d.id,false,'');}).join('');
+}
+
+function rSearch(){
+  var q=S.sq.toLowerCase(),res=[];
+  DAYS.forEach(function(d){d.acts.forEach(function(a){
+    if(a.title.toLowerCase().includes(q)||a.desc.toLowerCase().includes(q)||a.addr.toLowerCase().includes(q))
+      res.push({a:a,c:d.color,id:d.id,dt:d.date});
+  });});
+  return '<div style="font-size:12px;color:#C0392B;font-weight:600;margin-bottom:8px">🔍 「'+S.sq+'」找到 '+res.length+' 筆</div>'
+    +(res.length?res.map(function(r){return actCard(r.a,r.c,r.id,false,r.dt);}).join('')
+    :'<div style="text-align:center;padding:40px;color:var(--muted)">找不到相關行程</div>');
+}
+function rFood(){
+  var all = [];
+  DAYS.forEach(function(d){
+    d.acts.forEach(function(a){
+      if(a.type==='food'||a.type==='attraction'||a.type==='shopping')
+        all.push({a:a, c:d.color, id:d.id, dt:d.date, isSheet:false,
+                  loc:'行程內', cat:a.type==='food'?'美食':a.type==='attraction'?'景點':'伴手禮/購物'});
+    });
+  });
+  (S.sheetRows||[]).forEach(function(r,i){
+    var sid='sh-'+i;
+    if((S.sheetDeleted||[]).indexOf(sid)>=0)return;
+    var base={
+      id:sid,
+      time:r._time||r['時間']||'12:00',
+      title:r._title||r['名稱']||r['景點/美食']||r['店名']||'',
+      type:r._type||r['分類']||'food',
+      meal:r._meal||r['餐別']||null,
+      veg:r._veg||(r['素食']||'').toLowerCase()==='是',
+      nsf:r._nsf||(r['含魚']||'').toLowerCase()==='是',
+      addr:r._addr||r['地址']||'',
+      map:r._map||'',
+      desc:(function(){
+        var parts=[];
+        var d=r._desc||r['說明']||r['備注']||r['備註']||r['介紹']||r['內容']||'';
+        if(d)parts.push(d);
+        var p=r._price||r['費用']||r['價格']||'';
+        if(p)parts.push('💴 費用：'+p);
+        var n=r['推薦']||r['推薦原因']||r['注意']||r['特色']||'';
+        if(n&&n!==d)parts.push('💡 '+n);
+        var day=r._day||r['天']||r['日期']||r['行程日']||'';
+        if(day)parts.push('📅 '+day);
+        if(parts.length===0){
+          var skip=['名稱','地址','位置','時間','餐別','素食','含魚','地圖連結','地點分類','區域','城市','分類','title','addr','time','meal','veg','nsf','map','type'];
+          Object.keys(r).forEach(function(k){if(!k.startsWith('_')&&r[k]&&r[k].trim()&&skip.indexOf(k)<0)parts.push(k+'：'+r[k]);});
+        }
+        return parts.join('\n');
+      })(),
+    };
+    if(!base.map&&base.addr)base.map='https://maps.google.com/?q='+encodeURIComponent(base.addr);
+    var edit=(S.sheetEdits||{})[sid];
+    if(edit)Object.assign(base,edit);
+    // 地點
+    var loc=r['地點分類']||r['區域']||r['城市']||r['地點']||r['位置']||'';
+    if(!loc&&base.addr){
+      var areaMap=[['奈良','奈良'],['京都','京都'],['神戶','神戶'],['宇治','宇治'],
+        ['大阪市中央區','中央区'],['大阪市浪速','浪速区'],['大阪市阿倍野','阿倍野区'],
+        ['大阪市北區','北区'],['大阪市鶴橋','東成区'],['大阪市','大阪市'],['大阪','大阪']];
+      for(var ai=0;ai<areaMap.length;ai++){if(base.addr.indexOf(areaMap[ai][1])>=0){loc=areaMap[ai][0];break;}}
+    }
+    // 分類
+    var typeRaw=r['分類']||r['Type']||r['類別']||r._type||'';
+    var cat='美食';
+    if(/景點|觀光|神社|寺|城|公園|博物館|美術館|展覽/i.test(typeRaw)||/attraction/i.test(typeRaw))cat='景點';
+    else if(/伴手禮|購物|商店|藥妝|超市|百貨|土産|お土産/i.test(typeRaw)||/shopping/i.test(typeRaw))cat='伴手禮/購物';
+    if(base.title)all.push({a:base,c:'#16A085',id:null,dt:r._day||'試算表',isSheet:true,sheetIdx:i,loc:loc||'其他',cat:cat});
+  });
+
+  // 地點列表（去重）
+  var locs=['all'];
+  all.forEach(function(f){if(f.loc&&locs.indexOf(f.loc)<0)locs.push(f.loc);});
+  // 類別列表
+  var cats=['all','美食','景點','伴手禮/購物'];
+
+  // 複合篩選
+  var filt=all.filter(function(f){
+    var okFF = S.ff==='veg'?f.a.veg : S.ff==='nsf'?f.a.nsf : true;
+    var okLF = S.lf==='all'||f.loc===S.lf;
+    var okTF = S.tf==='all'||f.cat===S.tf;
+    return okFF&&okLF&&okTF;
+  });
+
+  var sheetCount=(S.sheetRows||[]).filter(function(_,i){return(S.sheetDeleted||[]).indexOf('sh-'+i)<0;}).length;
+  var out='';
+
+  // ── 篩選面板 ──
+  out+='<div class="card" style="padding:12px 14px;margin-bottom:8px">';
+  out+='<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px">🔍 篩選條件</div>';
+
+  // 行1：飲食條件（原按鈕）
+  out+='<div style="font-size:11px;color:var(--muted);margin-bottom:5px">飲食條件</div>';
+  out+='<div style="display:flex;gap:6px;margin-bottom:10px">';
+  out+='<button style="flex:1;border:0.5px solid '+(S.ff==='all'?'#C0392B':'var(--border)')
+    +';border-radius:10px;padding:8px 4px;font-size:12.5px;cursor:pointer;background:'
+    +(S.ff==='all'?'#C0392B':'var(--card)')+';color:'+(S.ff==='all'?'#fff':'var(--muted)')
+    +';font-family:inherit;font-weight:'+(S.ff==='all'?'600':'400')+'" onclick="S.ff=\'all\';render()">🍽️ 全部</button>';
+  out+='<button style="flex:1;border:0.5px solid '+(S.ff==='veg'?'#27AE60':'var(--border)')
+    +';border-radius:10px;padding:8px 4px;font-size:12.5px;cursor:pointer;background:'
+    +(S.ff==='veg'?'#27AE60':'var(--card)')+';color:'+(S.ff==='veg'?'#fff':'var(--muted)')
+    +';font-family:inherit;font-weight:'+(S.ff==='veg'?'600':'400')+'" onclick="S.ff=\'veg\';render()">🌿 素食</button>';
+  out+='<button style="flex:1;border:0.5px solid '+(S.ff==='nsf'?'#2980B9':'var(--border)')
+    +';border-radius:10px;padding:8px 4px;font-size:12.5px;cursor:pointer;background:'
+    +(S.ff==='nsf'?'#2980B9':'var(--card)')+';color:'+(S.ff==='nsf'?'#fff':'var(--muted)')
+    +';font-family:inherit;font-weight:'+(S.ff==='nsf'?'600':'400')+'" onclick="S.ff=\'nsf\';render()">🐟 含魚</button>';
+  out+='</div>';
+
+  // 行2：類別下拉
+  out+='<div style="display:flex;gap:8px;margin-bottom:0">';
+  out+='<div style="flex:1">';
+  out+='<div style="font-size:11px;color:var(--muted);margin-bottom:4px">類別分類</div>';
+  out+='<select onchange="S.tf=this.value;render()" style="width:100%;padding:8px 10px;border:0.5px solid '+(S.tf==='all'?'var(--border)':'#8E44AD')+';border-radius:9px;font-size:13px;font-family:inherit;background:var(--card);color:var(--text);outline:none;cursor:pointer">';
+  cats.forEach(function(c){
+    var icon=c==='all'?'🗂️ ':c==='美食'?'🍽️ ':c==='景點'?'⛩️ ':'🛍️ ';
+    out+='<option value="'+c+'"'+(S.tf===c?' selected':'')+'>'+icon+(c==='all'?'全部類別':c)+'</option>';
+  });
+  out+='</select></div>';
+
+  // 地點下拉
+  out+='<div style="flex:1">';
+  out+='<div style="font-size:11px;color:var(--muted);margin-bottom:4px">地點篩選</div>';
+  out+='<select onchange="S.lf=this.value;render()" style="width:100%;padding:8px 10px;border:0.5px solid '+(S.lf==='all'?'var(--border)':'#8E44AD')+';border-radius:9px;font-size:13px;font-family:inherit;background:var(--card);color:var(--text);outline:none;cursor:pointer">';
+  locs.forEach(function(l){
+    out+='<option value="'+l+'"'+(S.lf===l?' selected':'')+'>'+( l==='all'?'📍 全部地點':l)+'</option>';
+  });
+  out+='</select></div>';
+  out+='</div>';
+
+  // 篩選結果統計 + 重設
+  if(S.ff!=='all'||S.lf!=='all'||S.tf!=='all'){
+    out+='<div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:0.5px solid var(--border)">';
+    out+='<div style="font-size:12px;color:var(--muted)">篩選中：顯示 <b style="color:var(--text)">'+filt.length+'</b> / '+all.length+' 筆</div>';
+    out+='<button onclick="S.ff=\'all\';S.lf=\'all\';S.tf=\'all\';render()" style="border:0.5px solid var(--border);border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;background:none;color:var(--muted);font-family:inherit">✕ 清除篩選</button>';
+    out+='</div>';
+  }
+  out+='</div>';
+
+  // Google 試算表卡片
+  out+='<div class="card" style="margin-bottom:10px;border:1.5px solid #16A085">';
+  out+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">';
+  out+='<div style="font-size:14px;font-weight:600;color:#16A085">📊 連動 Google 試算表</div>';
+  out+=(sheetCount>0?'<span style="background:#D4EFDF;color:#1D6A39;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600">✅ '+sheetCount+' 筆</span>':'<span style="background:#FEF3CD;color:#7D5300;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600">⚠️ 未連結</span>');
+  out+='</div>';
+  if(sheetCount>0){
+    out+='<div style="font-size:12px;color:var(--muted);margin-bottom:8px">⏱ '+(S.sheetSyncTime||'未同步')+'</div>';
+    out+='<div style="display:flex;gap:6px">';
+    out+='<button onclick="importSheet()" style="flex:1;border:none;border-radius:9px;padding:9px;background:#16A085;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🔄 立即同步</button>';
+    out+='<button onclick="openPasteCSV()" style="border:0.5px solid var(--border);border-radius:9px;padding:9px 12px;background:none;color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit">📥 匯入</button>';
+    out+='<button onclick="if(confirm(\'清除試算表資料？\')){S.sheetRows=[];S.sheetEdits={};S.sheetDeleted=[];S.sheetSyncTime=\'\';saveState();render();}" style="border:0.5px solid var(--border);border-radius:9px;padding:9px 12px;background:none;color:#C0392B;font-size:12px;cursor:pointer;font-family:inherit">🗑️</button>';
+    out+='</div>';
+  } else {
+    out+='<div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:8px">只需「任何人可檢視」就能連結，無需額外設定</div>';
+    out+='<button onclick="autoFillSheetUrl()" style="width:100%;border:none;border-radius:9px;padding:10px;background:#16A085;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:7px">🔗 自動填入並連結我的試算表</button>';
+    out+='<div style="display:flex;gap:6px">';
+    out+='<input class="fi" style="flex:1;margin-bottom:0" id="sheetUrl" type="text" value="'+(S.sheetUrl||'')+'" placeholder="或手動貼上 CSV 連結" oninput="S.sheetUrl=this.value">';
+    out+='<button onclick="importSheet()" style="border:none;border-radius:9px;padding:10px 12px;background:#16A085;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">⬇️</button>';
+    out+='<button onclick="openPasteCSV()" style="border:0.5px solid var(--border);border-radius:9px;padding:10px 12px;background:none;color:var(--muted);font-size:12.5px;cursor:pointer;font-family:inherit">📥</button>';
+    out+='</div>';
+  }
+  if(S.sheetErr){
+    out+='<div style="margin-top:8px;font-size:12px;color:#C0392B;background:#FDEDEC;border-radius:8px;padding:8px 10px">⚠️ '+S.sheetErr+'</div>';
+    out+='<button onclick="openPasteCSV()" style="width:100%;margin-top:6px;border:none;border-radius:9px;padding:9px;background:#E67E22;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">📂 改用 Excel 檔案直接匯入</button>';
+  }
+  out+='</div>';
+
+  // 列表標題
+  out+='<div style="display:flex;justify-content:space-between;margin-bottom:8px;align-items:center">';
+  out+='<div style="font-size:12px;color:var(--muted)">顯示 '+filt.length+' / '+all.length+' 筆</div>';
+  out+='<button onclick="openAddFood()" style="border:0.5px solid var(--border);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit;background:none;color:var(--muted)">＋ 新增</button>';
+  out+='</div>';
+
+  // 卡片列表
+  filt.forEach(function(f){ out+=actCard(f.a,f.c,f.id,false,f.dt,f.isSheet,f.sheetIdx); });
+  return out;
+}
+
+function rMap(){
+  var lines=[[[64,79],[79,30],'#C0392B'],[[79,30],[56,55],'#C0392B'],[[56,55],[45,63],'#7B2D8B'],[[56,55],[43,26],'#C0392B'],[[43,26],[52,38],'#E67E22'],[[56,55],[28,44],'#2980B9'],[[28,44],[21,61],'#2980B9']];
+  var svgL=lines.map(function(l){return '<line x1="'+l[0][0]+'" y1="'+l[0][1]+'" x2="'+l[1][0]+'" y2="'+l[1][1]+'" stroke="'+l[2]+'" stroke-width=".5" stroke-dasharray="2,1.5" opacity=".7"/>';}).join('');
+  var pins=MAP_PINS.map(function(p){
+    var url='https://maps.google.com/?q='+encodeURIComponent(p.q);
+    var ls=p.name.split('\n');
+    return '<a href="'+url+'" target="_blank" rel="noopener">'
+      +'<circle cx="'+p.x+'" cy="'+p.y+'" r="3.8" fill="'+p.c+'" opacity=".9"/>'
+      +'<circle cx="'+p.x+'" cy="'+p.y+'" r="1.6" fill="#fff"/>'
+      +ls.map(function(l,i){return '<text x="'+(p.x+4.5)+'" y="'+(p.y+1.5+(i*3.8))+'" fill="var(--text)" font-size="3.5" font-weight="600">'+l+'</text>';}).join('')
+      +'</a>';
+  }).join('');
+  var ql=MAP_PINS.map(function(p){return '<a href="https://maps.google.com/?q='+encodeURIComponent(p.q)+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;background:'+p.c+';color:#fff;border-radius:12px;padding:5px 11px;font-size:13.5px;text-decoration:none;font-weight:600">📍 '+p.name.replace('\n','')+'</a>';}).join('');
+  var navL=DAYS.map(function(d){return '<div style="margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid var(--border)">'
+    +'<div style="font-size:11px;color:'+d.color+';font-weight:600;margin-bottom:5px">'+d.emoji+' '+d.date+' '+d.title+'</div>'
+    +d.acts.filter(function(a){return a.map;}).map(function(a){return '<a href="'+a.map+'" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:8px;text-decoration:none;background:var(--surface);margin-bottom:3px">'
+      +'<span style="font-size:14px">'+TC[a.type].icon+'</span>'
+      +'<span style="flex:1;font-size:12px;color:var(--text)">'+a.title+'</span>'
+      +'<span style="font-size:11px;color:'+d.color+';font-weight:600">'+a.time+' 🗺️</span></a>';}).join('')+'</div>';}).join('');
+  return '<div class="card"><div style="font-size:13.5px;font-weight:600;margin-bottom:8px">🗺️ 關西地圖（點地標→Google Maps）</div>'
+    +'<div style="background:#C5E8F7;border-radius:10px;overflow:hidden">'
+    +'<svg viewBox="0 0 100 100" style="width:100%;display:block">'
+    +'<rect width="100" height="100" fill="#B8DCF0"/>'
+    +'<polygon points="22,4 95,4 95,95 5,95 5,36 22,4" fill="#C8E6C9" opacity=".9"/>'
+    +'<rect x="0" y="0" width="22" height="95" fill="#90CAF9" opacity=".55"/>'
+    +'<rect x="0" y="93" width="100" height="7" fill="#90CAF9" opacity=".6"/>'
+    +'<polygon points="53,66 100,66 100,100 67,100" fill="#90CAF9" opacity=".5"/>'
+    +'<text x="11" y="56" fill="#1565C0" font-size="3" font-weight="600" transform="rotate(-90,11,56)">大阪灣</text>'
+    +svgL+pins+'</svg></div>'
+    +'<div style="font-size:13px;color:var(--muted);margin:6px 0">👆 點地標開啟 Google Maps（手機直接啟動地圖APP）</div>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px">'+ql+'</div>'
+    +'<a href="https://maps.google.com/maps?q=Osaka+Japan&ll=34.693,135.502&z=10" target="_blank" rel="noopener" style="display:block;text-align:center;background:#1565C0;color:#fff;border-radius:9px;padding:9px;font-size:13px;font-weight:600;text-decoration:none">🗺️ 開啟關西完整地圖（Google Maps）</a></div>'
+    +'<div class="card"><div style="font-size:13px;font-weight:600;margin-bottom:8px">🧭 各日導航</div>'+navL+'</div>';
+}
+
+function rFavs(){
+  var favs=[];DAYS.forEach(function(d){d.acts.forEach(function(a){if(S.favs.has(a.id))favs.push({a:a,c:d.color,id:d.id,dt:d.date});});});
+  if(!favs.length)return '<div style="text-align:center;padding:60px 20px;color:var(--muted)">'
+    +'<i class="ti ti-heart" aria-hidden="true" style="font-size:52px;display:block;margin-bottom:12px"></i>'
+    +'<div style="font-size:16px">尚無收藏行程</div>'
+    +'<div style="font-size:12px;margin-top:6px">點行程卡片的 ♡ 加入最愛</div></div>';
+  return '<div style="font-size:13px;color:var(--muted);margin-bottom:8px">共 '+favs.length+' 個收藏</div>'
+    +favs.map(function(f){return actCard(f.a,f.c,null,false,f.dt);}).join('');
+}
+
+function rBudget(){
+  var rate = S.jpyRate || 0.22;
+  var paid = S.paidItems || DEFAULT_PAID;
+  var expenses = S.expenses || [];
+  var pt = paid.reduce(function(s,p){return s+( p.amt||0);},0);
+  var totalJpy = expenses.reduce(function(s,e){return s+(e.jpy||0);},0);
+  var totalTwd = Math.round(totalJpy * rate);
+  var grandTwd = pt + totalTwd;
+  var out = '';
+
+  // ── 總花費概覽 ──
+  out += '<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:16px;padding:18px;color:#fff;margin-bottom:10px">';
+  out += '<div style="font-size:12px;opacity:.8;margin-bottom:4px">💰 旅遊總花費（5人）</div>';
+  out += '<div style="font-size:34px;font-weight:700;letter-spacing:-1px">NT$ '+grandTwd.toLocaleString()+'</div>';
+  out += '<div style="font-size:13px;opacity:.8;margin-top:4px">每人 NT$ '+Math.round(grandTwd/5).toLocaleString()+'</div>';
+  out += '<div style="display:flex;gap:10px;margin-top:12px">';
+  out += '<div style="flex:1;background:rgba(255,255,255,.1);border-radius:10px;padding:10px"><div style="font-size:11px;opacity:.8">✅ 已付款</div><div style="font-size:17px;font-weight:600;margin-top:2px">NT$ '+pt.toLocaleString()+'</div></div>';
+  out += '<div style="flex:1;background:rgba(255,255,255,.1);border-radius:10px;padding:10px"><div style="font-size:11px;opacity:.8">🧾 現場消費</div><div style="font-size:17px;font-weight:600;margin-top:2px">¥'+totalJpy.toLocaleString()+'</div><div style="font-size:11px;opacity:.7">≈NT$ '+totalTwd.toLocaleString()+'</div></div>';
+  out += '</div></div>';
+
+  // ── 匯率 ──
+  out += '<div class="card" style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center">';
+  out += '<div style="font-size:13px;font-weight:600;color:var(--text)">💱 匯率設定</div>';
+  out += '<div style="display:flex;align-items:center;gap:8px"><span style="font-size:13px;color:var(--muted)">¥100 = NT$</span>';
+  out += '<input type="number" value="'+Math.round(rate*100)+'" min="15" max="35" style="width:55px;border:0.5px solid var(--border);border-radius:8px;padding:6px 8px;font-size:14px;font-weight:600;background:var(--card);color:var(--text);text-align:center;outline:none" oninput="S.jpyRate=parseInt(this.value)/100;saveState();render()">';
+  out += '</div></div></div>';
+
+  // ── 固定支出（可編輯）──
+  out += '<div class="card" style="margin-bottom:10px">';
+  out += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
+  out += '<div style="font-size:14px;font-weight:600;color:var(--text)">✅ 已付款項目</div>';
+  out += '<button onclick="openAddPaid()" style="border:none;border-radius:8px;padding:6px 12px;background:#27AE60;color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit">＋ 新增項目</button>';
+  out += '</div>';
+  paid.forEach(function(p,i){
+    out += '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--border)">';
+    out += '<div style="flex:1"><div style="font-size:13.5px;font-weight:500;color:var(--text)">'+p.label+'</div>';
+    out += '<div style="font-size:11.5px;color:var(--muted)">'+( p.note||'')+'</div></div>';
+    out += '<div style="text-align:right;margin-right:6px"><div style="font-size:15px;font-weight:600;color:#27AE60">'+(p.unit||'NT$')+' '+(p.amt||0).toLocaleString()+'</div>';
+    out += '<div style="font-size:11px;color:var(--muted)">每人 '+(p.unit||'NT$')+' '+Math.round((p.amt||0)/5).toLocaleString()+'</div></div>';
+    out += '<div style="display:flex;gap:3px">';
+    out += '<button onclick="openEditPaid('+i+')" style="border:0.5px solid var(--border);border-radius:7px;padding:5px 8px;background:none;color:#E67E22;font-size:12px;cursor:pointer"><i class="ti ti-edit" style="font-size:13px"></i></button>';
+    out += '<button onclick="delPaid('+i+')" style="border:0.5px solid var(--border);border-radius:7px;padding:5px 8px;background:none;color:#C0392B;font-size:12px;cursor:pointer"><i class="ti ti-trash" style="font-size:13px"></i></button>';
+    out += '</div></div>';
+  });
+  var paidTotal = paid.reduce(function(s,p){return s+(p.amt||0);},0);
+  out += '<div style="display:flex;justify-content:flex-end;margin-top:8px;padding-top:8px;border-top:0.5px solid var(--border)">';
+  out += '<div style="font-size:14px;font-weight:600;color:#27AE60">合計 NT$ '+paidTotal.toLocaleString()+'</div></div>';
+  out += '</div>';
+
+  // ── 現場消費記錄 ──
+  out += '<div class="card" style="margin-bottom:10px">';
+  out += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
+  out += '<div style="font-size:14px;font-weight:600;color:var(--text)">🧾 現場消費記錄</div>';
+  out += '<div style="display:flex;gap:6px">';
+  out += '<button onclick="openCam()" style="border:none;border-radius:8px;padding:7px 11px;background:#C0392B;color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">📷 掃發票</button>';
+  out += '<button onclick="openAddExpense()" style="border:0.5px solid var(--border);border-radius:8px;padding:7px 11px;background:none;color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit">＋ 手動</button>';
+  out += '</div></div>';
+
+  if(expenses.length===0){
+    out += '<div style="text-align:center;padding:20px;color:var(--muted)"><div style="font-size:32px;margin-bottom:8px">🧾</div><div style="font-size:14px;margin-bottom:4px">尚無消費記錄</div><div style="font-size:12.5px">拍攝發票或手動新增消費</div></div>';
+  } else {
+    var byDay={};
+    expenses.forEach(function(e,i){var d=e.date||'其他';if(!byDay[d])byDay[d]=[];byDay[d].push({e:e,i:i});});
+    Object.keys(byDay).forEach(function(day){
+      var dayTotal=byDay[day].reduce(function(s,x){return s+(x.e.jpy||0);},0);
+      out += '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px;padding-bottom:4px;border-bottom:0.5px solid var(--border)">';
+      out += '<span>📅 '+day+'</span><span>¥'+dayTotal.toLocaleString()+' ≈ NT$'+Math.round(dayTotal*rate).toLocaleString()+'</span></div>';
+      byDay[day].forEach(function(x){
+        var e2=x.e,idx=x.i,twd2=Math.round((e2.jpy||0)*rate);
+        out += '<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:0.5px solid var(--surface)">';
+        out += '<div style="flex:1"><div style="font-size:13.5px;color:var(--text)">'+(e2.label||'消費')+'</div>';
+        if(e2.note) out += '<div style="font-size:11.5px;color:var(--muted)">'+e2.note+'</div>';
+        out += '</div>';
+        out += '<div style="text-align:right;flex-shrink:0"><div style="font-size:14px;font-weight:600;color:#C0392B">¥'+(e2.jpy||0).toLocaleString()+'</div>';
+        out += '<div style="font-size:11.5px;color:var(--muted)">≈NT$'+twd2.toLocaleString()+'</div></div>';
+        out += '<button onclick="openExpenseDetail('+idx+')" style="border:0.5px solid var(--border);border-radius:7px;padding:5px 7px;background:none;color:#2980B9;cursor:pointer"><i class="ti ti-list-details" style="font-size:13px"></i></button>';
+        out += '<button onclick="delExpense('+idx+')" style="border:none;background:none;color:var(--muted);cursor:pointer;padding:5px;font-size:15px">🗑</button>';
+        out += '</div>';
+      });
+      out += '</div>';
+    });
+    out += '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1.5px solid var(--border)">';
+    out += '<div style="font-size:14px;font-weight:600;color:var(--text)">現場消費合計</div>';
+    out += '<div style="text-align:right"><div style="font-size:18px;font-weight:700;color:#C0392B">¥'+totalJpy.toLocaleString()+'</div>';
+    out += '<div style="font-size:13px;color:#E67E22;font-weight:600">≈ NT$ '+totalTwd.toLocaleString()+'</div></div>';
+    out += '</div>';
+    out += '<button onclick="if(confirm(\'清除所有消費記錄？\')){S.expenses=[];saveState();render();}" style="width:100%;margin-top:8px;border:0.5px solid var(--border);border-radius:8px;padding:8px;background:none;font-size:12.5px;cursor:pointer;font-family:inherit;color:var(--muted)">🗑️ 清除所有記錄</button>';
+  }
+  out += '</div>';
+  return out;
+}
+
+function rTips(){
+  var acc=TIPS.map(function(g,gi){
+    var open=S.tipsOpen===gi;
+    var items=open?'<div style="border-top:0.5px solid var(--border);padding:6px 14px 10px">'
+      +g.items.map(function(it){return '<div style="padding:6px 0;border-bottom:0.5px solid var(--surface)">'
+        +'<div style="font-size:13px;color:var(--muted)">'+it.q+'</div>'
+        +'<div style="font-size:15px;color:var(--text);margin-top:2px">'+it.a+'</div></div>';}).join('')+'</div>':'';
+    return '<div class="acc"><button class="accbtn" onclick="S.tipsOpen=S.tipsOpen==='+gi+'?null:'+gi+';render()">'
+      +'<span>'+g.t+'</span><i class="ti ti-chevron-'+(open?'up':'down')+'" aria-hidden="true" style="font-size:14px"></i></button>'+items+'</div>';
+  }).join('');
+  var pack=PACK.map(function(pc,pi){
+    return '<div style="margin-bottom:12px"><div style="font-size:14px;font-weight:600;color:#C0392B;margin-bottom:6px">'+pc.cat+'</div>'
+      +pc.items.map(function(item,ii){var k='p'+pi+'-'+ii,done=S.pack[k];
+        return '<div class="chkrow" onclick="S.pack[\''+k+'\']=!S.pack[\''+k+'\'];saveState();render()">'
+          +'<div class="chkbox'+(done?' on':'')+'">'+( done?'<i class="ti ti-check" aria-hidden="true" style="font-size:11px;color:#fff"></i>':'')+'</div>'
+          +'<span style="font-size:13px;color:'+(done?'var(--muted)':'var(--text)')+';text-decoration:'+(done?'line-through':'none')+'">'+item+'</span></div>';
+      }).join('')+'</div>';
+  }).join('');
+  return acc+'<div class="card" style="margin-top:4px"><div style="font-size:13px;font-weight:600;margin-bottom:10px">🧳 行李打包清單</div>'+pack+'</div>';
+}
+
+// ═══ ACT CARD ═══
+function actCard(act, dayColor, dayId, isFood, badge, isSheet, sheetIdx){
+  var tc = TC[act.type]||TC.info;
+  var mc = act.meal ? MC[act.meal] : null;
+  var isFav = S.favs.has(act.id);
+  var isDone = S.done.has(act.id);
+  var photo = S.photos[act.id] || null;
+  // 試算表項目顏色與一般項目一致（不再用綠色邊框）
+  var borderColor = dayColor || '#C0392B';
+  var topBg = tc.bg;
+
+  return (
+    '<div class="acard" style="opacity:'+(isDone?'.6':'1')+';border-color:'+borderColor+'22">'
+    // ── 頂部標籤列（與一般行程完全一致）──
+    +'<div class="atop" style="background:'+topBg+'">'
+    +'<span style="font-size:15px">'+tc.icon+'</span>'
+    +'<span style="font-size:10.5px;font-weight:600;color:'+tc.tx+'">'+tc.label+'</span>'
+    +(mc ? pill(mc.bg,mc.c,mc.label) : '')
+    +(act.veg ? pill('#D5F5E3','#1A6B3A','🌿素食') : '')
+    +(act.nsf ? pill('#D6EAF8','#1A5276','🐟含魚') : '')
+    +(badge ? pill(borderColor,'#fff',badge) : '')
+    +(isSheet ? pill('#E8F5F0','#16A085','📊試算表') : '')
+    +(isDone ? pill('#E8F5E9','#27AE60','✓完成') : '')
+    +'<span style="margin-left:auto;font-size:12.5px;font-weight:600;color:var(--muted);font-family:monospace">'+act.time+'</span>'
+    +'</div>'
+    // ── 相片區（有相片才顯示）──
+    +(photo
+      ? '<div style="position:relative;background:#000;max-height:180px;overflow:hidden;border-bottom:0.5px solid var(--border)">'
+        +'<img src="'+photo+'" alt="相片" style="width:100%;max-height:180px;object-fit:cover;display:block">'
+        +'<button onclick="deletePhoto(\''+act.id+'\')" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>'
+        +'</div>'
+      : '')
+    // ── 主要內容 ──
+    +'<div class="abody">'
+    +'<div class="atit">'+act.title+'</div>'
+    +(act.addr ? '<div class="aaddr"><i class="ti ti-map-pin" aria-hidden="true" style="font-size:11px;vertical-align:-1px"></i> '+act.addr+'</div>' : '')
+    +((act.desc||'').trim()?'<div class="adesc">'+(act.desc||'')+'</div>':'')
+    +'</div>'
+    // ── 動作按鈕列（試算表項目也有完整按鈕）──
+    +'<div class="aacts">'
+    +'<button class="ab" onclick="openDetail(\''+act.id+'\')" style="color:#2980B9"><i class="ti ti-search" aria-hidden="true" style="font-size:11px"></i> 詳細</button>'
+    +'<button class="ab" onclick="tFav(\''+act.id+'\')" style="color:'+(isFav?'#C0392B':'var(--muted)')+'"><i class="ti ti-heart'+(isFav?'-filled':'')+'" aria-hidden="true" style="font-size:11px"></i> '+(isFav?'已收藏':'最愛')+'</button>'
+    +'<button class="ab" onclick="openPhotoMenu(\''+act.id+'\')" style="color:#8E44AD"><i class="ti ti-camera" aria-hidden="true" style="font-size:11px"></i> 相片</button>'
+    +'<button class="ab" onclick="cpAct(\''+act.id+'\')" style="color:#27AE60"><i class="ti ti-copy" aria-hidden="true" style="font-size:11px"></i> 複製</button>'
+    // 編輯：行程用 openEdit，試算表用 openSheetEdit
+    +(dayId
+      ? '<button class="ab" onclick="openEdit(\''+act.id+'\','+dayId+')" style="color:#E67E22"><i class="ti ti-edit" aria-hidden="true" style="font-size:11px"></i> 編輯</button>'
+      : (isSheet
+          ? '<button class="ab" onclick="openSheetEdit(\''+act.id+'\','+sheetIdx+')" style="color:#E67E22"><i class="ti ti-edit" aria-hidden="true" style="font-size:11px"></i> 編輯</button>'
+          : ''))
+    // 打卡
+    +(dayId ? '<button class="ab" onclick="tDone(\''+act.id+'\')" style="color:'+(isDone?'#27AE60':'var(--muted)')+'"><i class="ti ti-check" aria-hidden="true" style="font-size:11px"></i> '+(isDone?'完成':'打卡')+'</button>' : '')
+    // 刪除：行程用 delAct，試算表用 delSheetItem
+    +(dayId
+      ? '<button class="ab" onclick="delAct(\''+act.id+'\','+dayId+')" style="color:#C0392B"><i class="ti ti-trash" aria-hidden="true" style="font-size:11px"></i> 刪除</button>'
+      : (isSheet
+          ? '<button class="ab" onclick="delSheetItem(\''+act.id+'\')" style="color:#C0392B"><i class="ti ti-trash" aria-hidden="true" style="font-size:11px"></i> 刪除</button>'
+          : ''))
+    +(act.map ? '<a href="'+act.map+'" target="_blank" rel="noopener" class="ab" style="text-decoration:none;color:#2980B9"><i class="ti ti-map" aria-hidden="true" style="font-size:11px"></i> 導航</a>' : '')
+    +'</div></div>'
+  );
+}
+
+
+// ═══ MODALS ═══
+function detHTML(act){
+  var tc=TC[act.type]||TC.info,mc=act.meal?MC[act.meal]:null,isFav=S.favs.has(act.id);
+  return '<div class="mdrg"></div>'
+    +'<div class="mhdr"><div class="mtit">📋 行程詳細</div><button class="mclose" onclick="closeModal()">✕</button></div>'
+    +'<div class="sep"></div><div class="mbody">'
+    +'<div style="display:flex;gap:10px;margin-bottom:10px">'
+    +'<div style="background:'+tc.bg+';border-radius:10px;padding:10px;font-size:22px;min-width:48px;display:flex;align-items:center;justify-content:center">'+tc.icon+'</div>'
+    +'<div style="flex:1"><div style="font-size:17px;font-weight:600;color:var(--text)">'+act.title+'</div>'
+    +'<div style="font-size:13px;color:var(--muted);margin-top:2px">'+act.time+' · '+tc.label+'</div></div>'
+    +'<button onclick="tFav(\''+act.id+'\');openDetail(\''+act.id+'\')" style="background:none;border:none;cursor:pointer;font-size:24px;padding:0">'+(isFav?'❤️':'🤍')+'</button></div>'
+    +(S.photos&&S.photos[act.id]?'<div style="margin-bottom:12px;position:relative"><img src="'+S.photos[act.id]+'" alt="相片" style="width:100%;border-radius:10px;max-height:220px;object-fit:cover;display:block"><button onclick="deletePhoto(\''+act.id+'\')" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:13px;cursor:pointer">✕</button></div>':'')
+    +(act.addr?'<div style="background:var(--surface);border-radius:9px;padding:8px 11px;font-size:14px;color:var(--muted);margin-bottom:9px"><i class="ti ti-map-pin" aria-hidden="true" style="font-size:12px;vertical-align:-2px"></i> '+act.addr+'</div>':'')
+    +'<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:9px">'
+    +(act.veg?pill('#D5F5E3','#1A6B3A','🌿 素食友善'):'')
+    +(act.nsf?pill('#D6EAF8','#1A5276','🐟 含魚無海鮮'):'')
+    +(mc?pill(mc.bg,mc.c,mc.label):'')+'</div>'
+    +'<div style="background:var(--surface);border-radius:11px;padding:12px;font-size:15px;color:var(--text);white-space:pre-line;line-height:1.9;margin-bottom:10px">'+act.desc+'</div>'
+    +'<div style="background:var(--surface);border-radius:12px;padding:13px;margin-bottom:10px">'
+    +'<div style="font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px">🤖 AI 詳細介紹</div>'
+    +(!S.aiT&&!S.aiL?'<button onclick="loadAI(\''+act.id+'\')" style="background:#8E44AD;color:#fff;border:none;border-radius:9px;padding:10px;font-size:13px;cursor:pointer;width:100%;font-weight:600;font-family:inherit">✨ 取得 AI 詳細介紹</button>':'')
+    +(S.aiL?'<div style="text-align:center;padding:14px;font-size:13px;color:#8E44AD">⏳ AI 查詢中…</div>':'')
+    +(S.aiT==='__NEED_KEY__'?'<div style="background:#FEF3CD;border-radius:9px;padding:12px;font-size:13px;color:#7D5300;margin-bottom:8px">💡 AI 功能需要 Anthropic API Key。<br>免費申請：<a href="https://console.anthropic.com" target="_blank" style="color:#2980B9">console.anthropic.com</a></div><input class="fi" type="password" id="aiKeyInput" placeholder="sk-ant-api..." style="margin-bottom:8px"><button onclick="S.apiKey=document.getElementById(\'aiKeyInput\').value;localStorage.setItem(\'osaka-apikey\',S.apiKey);loadAI(\''+act.id+'\')" style="background:#8E44AD;color:#fff;border:none;border-radius:9px;padding:10px;font-size:13px;cursor:pointer;width:100%;font-weight:600;font-family:inherit">🚀 儲存並取得 AI 介紹</button>':'')
+    +(S.aiT==='__NET_ERROR__'?'<div style="background:#FDEDEC;border-radius:9px;padding:10px;font-size:13px;color:#C0392B">❌ 網路連線失敗，請確認 Wi-Fi 正常後重試。<br><button onclick="loadAI(\''+act.id+'\')" style="margin-top:6px;border:none;background:#C0392B;color:#fff;border-radius:7px;padding:5px 12px;font-size:12px;cursor:pointer">重試</button></div>':'')
+    +(S.aiT&&S.aiT!=='__NEED_KEY__'&&S.aiT!=='__NET_ERROR__'&&!S.aiT.startsWith('__KEY_ERROR__')?'<div style="font-size:13.5px;color:var(--text);white-space:pre-line;line-height:1.85">'+S.aiT+'</div>':'')
+    +'</div>'
+    +'</div>'
+    '<button onclick="openPhotoMenu(\''+act.id+'\')" style="width:100%;border:0.5px solid var(--border);border-radius:11px;padding:11px;background:none;color:#8E44AD;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:8px"><i class="ti ti-camera" style="font-size:14px;vertical-align:-2px"></i> '+(S.photos[act.id]?'更換相片':'新增相片')+'</button>'+(act.map?'<a href="'+act.map+'" target="_blank" rel="noopener" style="display:block;text-align:center;background:#C0392B;color:#fff;border-radius:11px;padding:12px;font-size:14px;text-decoration:none;font-weight:600;margin-bottom:4px"><i class="ti ti-map" aria-hidden="true" style="font-size:14px;vertical-align:-2px"></i> 在 Google Maps 開啟導航</a>':'')
+    +'</div>';
+}
+window.openDetail=function(actId){
+  var r=findAct(actId);
+  if(!r&&typeof actId==='string'&&actId.indexOf('sh-')===0){
+    var idx=parseInt(actId.replace('sh-',''));
+    if(!isNaN(idx)&&S.sheetRows&&S.sheetRows[idx]){
+      var sr=S.sheetRows[idx];
+      var t=sr._title||sr['名稱']||sr['景點/美食']||sr.title||'';
+      var ad=sr._addr||sr['地址']||sr.addr||'';
+      var lines=[];
+      if(sr._desc)lines.push(sr._desc);
+      if(sr._price)lines.push('💴 費用：'+sr._price);
+      if(sr._day)lines.push('📅 行程日：'+sr._day);
+      var skip=['名稱','地址','說明','備注','備註','費用','時間','餐別','素食','含魚','title','addr','desc','time','meal','veg','nsf','price','map','day','type','note'];
+      Object.keys(sr).forEach(function(k){if(!k.startsWith('_')&&sr[k]&&skip.indexOf(k)<0)lines.push(k+'：'+sr[k]);});
+      var sa={id:actId,time:sr._time||'12:00',title:t,type:sr._type||'food',meal:sr._meal||null,veg:!!sr._veg,nsf:!!sr._nsf,addr:ad,map:sr._map||(ad?'https://maps.google.com/?q='+encodeURIComponent(ad):''),desc:lines.join('\n')};
+      S.aiT='';S.aiL=false;window._da=sa;showModal(detHTML(sa));return;
+    }
+  }
+  if(!r)return;
+  S.aiT='';S.aiL=false;window._da=r.act;showModal(detHTML(r.act));
+};
+
+window.loadAI=async function(actId){
+  var found=findAct(actId);
+  var act=found?found.act:window._da;
+  if(!act)return;
+  var key=S.apiKey||localStorage.getItem('osaka-apikey')||'';
+  if(!key){
+    S.aiT='__NEED_KEY__';S.aiL=false;
+    if(window._da)showModal(detHTML(window._da));
+    return;
+  }
+  S.aiL=true;S.aiT='';if(window._da)showModal(detHTML(window._da));
+  try{
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,
+        messages:[{role:'user',content:'請用繁體中文詳細介紹「'+act.title+'」（地址：'+act.addr+'）。格式：\n📖 簡介（3~4句）\n⏰ 實用資訊\n• 開放時間：\n• 費用：\n• 交通：\n💡 旅遊貼士（3點）\n🍽️ 附近美食推薦（2~3個）'}]})});
+    var data=await res.json();
+    if(data.error){S.aiT='__KEY_ERROR__:'+(data.error.message||'Key 無效');}
+    else{S.aiT=data.content&&data.content.map(function(c){return c.text||'';}).join('')||'';}
+  }catch(e){S.aiT='__NET_ERROR__';}
+  S.aiL=false;if(window._da)showModal(detHTML(window._da));
+};
+
+function editHTML(act,isAdd,dayId){
+  return '<div class="mdrg"></div>'
+    +'<div class="mhdr"><div class="mtit">'+(isAdd?'➕ 新增':'✏️ 編輯')+'</div><button class="mclose" onclick="closeModal()">✕</button></div>'
+    +'<div class="sep"></div><div class="mbody"><div style="display:flex;flex-direction:column;gap:8px">'
+    +'<div><div class="fl">⏰ 時間</div><input class="fi" type="time" value="'+act.time+'" oninput="window._ea.time=this.value"></div>'
+    +'<div><div class="fl">📌 標題</div><input class="fi" type="text" value="'+(act.title||'')+'" placeholder="行程標題" oninput="window._ea.title=this.value"></div>'
+    +'<div><div class="fl">🏷️ 類型</div><select class="fi" oninput="window._ea.type=this.value">'
+    +Object.keys(TC).map(function(k){return '<option value="'+k+'"'+(act.type===k?' selected':'')+'>'+TC[k].icon+' '+TC[k].label+'</option>';}).join('')+'</select></div>'
+    +'<div><div class="fl">🍽️ 餐別</div><select class="fi" oninput="window._ea.meal=this.value||null"><option value=""'+((!act.meal)?' selected':'')+'>非餐食</option>'
+    +Object.keys(MC).map(function(k){return '<option value="'+k+'"'+(act.meal===k?' selected':'')+'>'+MC[k].label+'</option>';}).join('')+'</select></div>'
+    +'<div><div class="fl">📍 地址</div><input class="fi" type="text" value="'+(act.addr||'')+'" placeholder="地址" oninput="window._ea.addr=this.value"></div>'
+    +'<div><div class="fl">🗺️ Google Maps URL</div><input class="fi" type="text" value="'+(act.map||'')+'" placeholder="https://maps.google.com/?q=…" oninput="window._ea.map=this.value"></div>'
+    +'<div><div class="fl">📝 說明</div><textarea class="fi" rows="4" style="resize:vertical" oninput="window._ea.desc=this.value">'+(act.desc||'')+'</textarea></div>'
+    +'<div style="display:flex;gap:16px">'
+    +'<label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="checkbox" '+(act.veg?'checked':'')+' onchange="window._ea.veg=this.checked"> 🌿 素食</label>'
+    +'<label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="checkbox" '+(act.nsf?'checked':'')+' onchange="window._ea.nsf=this.checked"> 🐟 含魚無海鮮</label>'
+    +'</div>'
+    +'<button onclick="saveAct('+dayId+','+isAdd+')" style="border:none;border-radius:9px;padding:12px;background:#C0392B;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;width:100%">'+(isAdd?'✅ 確認新增':'✅ 儲存變更')+'</button>'
+    +'</div></div>';
+}
+window.openEdit=function(actId,dayId){var r=findAct(actId);if(!r)return;window._ea=Object.assign({},r.act);showModal(editHTML(window._ea,false,dayId));};
+window.openAdd=function(dayId){window._ea={id:'new-'+Date.now(),time:'09:00',title:'',type:'attraction',meal:null,veg:false,nsf:false,addr:'',map:'',desc:''};showModal(editHTML(window._ea,true,dayId));};
+window.openAddFood=function(){var dayId=DAYS[S.di].id;window._ea={id:'new-'+Date.now(),time:'12:00',title:'',type:'food',meal:'lunch',veg:false,nsf:false,addr:'',map:'',desc:''};showModal(editHTML(window._ea,true,dayId));};
+window.saveAct=function(dayId,isAdd){
+  var act=window._ea;if(!act.title.trim()){showToast('⚠️ 請輸入標題！');return;}
+  // 試算表項目走 saveSheetEdit
+  if(window._eaIsSheet){ window._eaIsSheet=false; saveSheetEdit(); return; }
+  DAYS.forEach(function(d){if(d.id===dayId||d.id===parseInt(dayId)){
+    if(isAdd){d.acts.push(act);d.acts.sort(function(a,b){return a.time.localeCompare(b.time);});}
+    else{var idx=d.acts.findIndex(function(a){return a.id===act.id;});if(idx>=0)d.acts[idx]=act;}
+  }});
+  closeModal();render();showToast(isAdd?'✅ 新增成功！':'✅ 已儲存！');
+};
+
+// Camera
+function camHTML(){
+  var mode = S.camMode || 'receipt';
+  var tm = S.translateMode || 'jpn2zh';
+
+  // 翻譯方向設定
+  var translatePairs = [
+    {k:'jpn2zh', label:'🇯🇵日→🇹🇼繁', src:'jpn', tgt:'zh'},
+    {k:'zh2jpn', label:'🇹🇼繁→🇯🇵日', src:'chi_tra', tgt:'ja'},
+    {k:'eng2jpn', label:'🇺🇸英→🇯🇵日', src:'eng', tgt:'ja'},
+    {k:'jpn2eng', label:'🇯🇵日→🇺🇸英', src:'jpn', tgt:'en'},
+    {k:'zh2eng',  label:'🇹🇼繁→🇺🇸英', src:'chi_tra', tgt:'en'},
+    {k:'eng2zh',  label:'🇺🇸英→🇹🇼繁', src:'eng', tgt:'zh'},
+  ];
+  var curPair = translatePairs.find(function(p){return p.k===tm;}) || translatePairs[0];
+
+  var modeTitle = mode==='receipt'?'🧾 拍照即算（日→繁中）':mode==='translate'?'🌐 即時翻譯':'📷 文字辨識';
+  var h = '<div class="mdrg"></div>'
+    + '<div class="mhdr"><div class="mtit">'+modeTitle+'</div>'
+    + '<button class="mclose" onclick="closeModal()">✕</button></div>'
+    + '<div class="sep"></div><div class="mbody">';
+
+  // ── 模式 Tab ──
+  h += '<div style="display:flex;gap:0;margin-bottom:12px;border:0.5px solid var(--border);border-radius:10px;overflow:hidden">';
+  [['receipt','🧾 發票'],['translate','🌐 翻譯'],['text','📷 辨識']].forEach(function(m2){
+    var active = mode===m2[0];
+    h += '<button onclick="S.camMode=\''+m2[0]+'\';S.camT=\'\';S.camImg=null;S.receiptData=null;showModal(camHTML())" '
+      + 'style="flex:1;border:none;padding:9px 4px;font-size:12.5px;cursor:pointer;font-family:inherit;'
+      + 'background:'+(active?'#C0392B':'var(--surface)')
+      + ';color:'+(active?'#fff':'var(--muted)')+'">'+m2[1]+'</button>';
+  });
+  h += '</div>';
+
+  // ── 翻譯模式：語言方向選擇 ──
+  if(mode==='translate'){
+    h += '<div style="margin-bottom:10px">';
+    h += '<div style="font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600">翻譯方向</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">';
+    translatePairs.forEach(function(p){
+      var active = tm===p.k;
+      h += '<button onclick="S.translateMode=\''+p.k+'\';S.camT=\'\';S.camImg=null;showModal(camHTML())" '
+        + 'style="border:1.5px solid '+(active?'#2980B9':'var(--border)')
+        + ';border-radius:9px;padding:8px 6px;font-size:12.5px;cursor:pointer;font-family:inherit;text-align:center;'
+        + 'background:'+(active?'rgba(41,128,185,.12)':'var(--card)')
+        + ';color:'+(active?'#2980B9':'var(--muted)')
+        + ';font-weight:'+(active?'600':'400')+'">'+p.label+'</button>';
+    });
+    h += '</div></div>';
+  }
+
+  // ── 已拍照片預覽 ──
+  if(S.camImg){
+    h += '<div style="margin-bottom:12px;border-radius:10px;overflow:hidden;max-height:180px;background:#000;display:flex;align-items:center;justify-content:center">'
+      + '<img src="'+S.camImg+'" style="max-height:180px;max-width:100%;object-fit:contain"></div>';
+  }
+
+  // ── 載入中 ──
+  if(S.camL){
+    var loadMsg = mode==='translate'?('翻譯中（'+curPair.label+'）…'):'辨識中…';
+    h += '<div style="text-align:center;padding:20px">'
+      + '<div style="font-size:28px;margin-bottom:8px">'+(mode==='translate'?'🌐':'🔍')+'</div>'
+      + '<div style="font-size:14px;font-weight:600;color:#2980B9;margin-bottom:4px">'+loadMsg+'</div>'
+      + '<div id="ocrProgress" style="font-size:12px;color:var(--muted)">正在分析圖片…</div>'
+      + '<div style="margin-top:10px;height:6px;background:var(--surface);border-radius:99px;overflow:hidden">'
+      + '<div id="ocrBar" style="height:100%;background:#2980B9;border-radius:99px;width:0%;transition:width .3s"></div></div></div>'
+      + '</div>';
+    return h;
+  }
+
+  // ── 拍照按鈕（初始狀態）──
+  if(!S.camT || S.camT===''){
+    var camLabel = mode==='receipt'?'拍攝發票':mode==='translate'?('拍照翻譯（'+curPair.label+'）'):'開啟相機拍照';
+    h += '<input type="file" id="CAMIN" accept="image/*" capture="environment" style="display:none" onchange="handleCam(this)">'
+      + '<input type="file" id="CAMGAL" accept="image/*" style="display:none" onchange="handleCam(this)">'
+      + '<button onclick="document.getElementById(\'CAMIN\').click()" style="width:100%;border:none;border-radius:10px;padding:12px;background:#C0392B;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px">'
+      + '<i class="ti ti-camera" style="font-size:16px"></i>'+camLabel+'</button>'
+      + '<button onclick="document.getElementById(\'CAMGAL\').click()" style="width:100%;border:0.5px solid var(--border);border-radius:10px;padding:10px;background:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:6px">'
+      + '<i class="ti ti-photo" style="font-size:14px"></i> 從相簿選取</button>';
+    if(mode==='receipt'){
+      h += '<div style="background:var(--surface);border-radius:10px;padding:10px 13px;font-size:12.5px;color:var(--muted);line-height:1.75">📸 拍攝日本發票 → 自動辨識金額 → 即時換算台幣<br><b style="color:var(--text)">完全免費，無需 API Key！</b></div>';
+    } else if(mode==='translate'){
+      h += '<div style="background:var(--surface);border-radius:10px;padding:10px 13px;font-size:12.5px;color:var(--muted);line-height:1.75">📸 拍攝任何文字 → 自動辨識 → 本地翻譯<br>目前翻譯方向：<b style="color:#2980B9">'+curPair.label+'</b></div>';
+    }
+  }
+
+  // ── 發票結果 ──
+  if(S.receiptData && mode==='receipt'){
+    var rd=S.receiptData, rate=S.jpyRate||0.22;
+    h += '<div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:10px">';
+    h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
+    h += '<div style="font-size:13px;font-weight:600;color:var(--text)">🧾 發票明細</div>';
+    h += '<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)">¥100=NT$<input type="number" value="'+Math.round(rate*100)+'" min="15" max="35" style="width:44px;border:0.5px solid var(--border);border-radius:6px;padding:3px 5px;font-size:12px;background:var(--card);color:var(--text);text-align:center" oninput="S.jpyRate=parseInt(this.value)/100;showModal(camHTML())"></div>';
+    h += '</div>';
+    (rd.items||[]).forEach(function(item,idx){
+      var twd=Math.round(item.jpy*rate);
+      h += '<div style="display:flex;align-items:center;gap:6px;padding:7px 0;border-bottom:0.5px solid var(--border)">'
+        + '<div style="flex:1;font-size:13px;color:var(--text);line-height:1.4">'+item.name+'</div>'
+        + '<div style="text-align:right;flex-shrink:0">'
+        + '<input type="number" value="'+item.jpy+'" min="0" max="999999" '
+        + 'style="width:70px;border:0.5px solid var(--border);border-radius:6px;padding:4px 6px;'
+        + 'font-size:13px;font-weight:600;background:var(--card);color:var(--text);text-align:right" '
+        + 'oninput="S.receiptData.items['+idx+'].jpy=parseInt(this.value)||0;'
+        + 'S.receiptData.total=S.receiptData.items.reduce(function(s,i){return s+i.jpy;},0)'
+        + '-S.receiptData.discounts.reduce(function(s,d){return s+d.jpy;},0);showModal(camHTML())">'
+        + '<div style="font-size:11px;color:var(--muted)">≈NT$'+twd.toLocaleString()+'</div></div>'
+        + '<button onclick="S.receiptData.items.splice('+idx+',1);'
+        + 'S.receiptData.total=S.receiptData.items.reduce(function(s,i){return s+i.jpy;},0)'
+        + '-S.receiptData.discounts.reduce(function(s,d){return s+d.jpy;},0);showModal(camHTML())" '
+        + 'style="border:none;background:none;color:var(--muted);cursor:pointer;padding:3px;font-size:14px;flex-shrink:0">✕</button>'
+        + '</div>';
+    });
+    // 新增商品按鈕
+    h += '<button onclick="S.receiptData.items.push({name:\'商品\',jpy:0});showModal(camHTML())" '
+      + 'style="width:100%;margin-top:6px;border:0.5px dashed var(--border);border-radius:8px;padding:7px;'
+      + 'background:none;font-size:12.5px;color:var(--muted);cursor:pointer;font-family:inherit">＋ 新增商品</button>';
+    (rd.discounts||[]).forEach(function(d){
+      h += '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:0.5px solid var(--border)">'
+        + '<div style="font-size:13px;color:#27AE60">'+d.name+'</div>'
+        + '<div style="font-size:13px;font-weight:600;color:#27AE60">-¥'+Math.abs(d.jpy).toLocaleString()+'</div></div>';
+    });
+    h += '<div style="margin-top:10px;background:var(--card);border-radius:10px;padding:12px">'
+      + '<div style="display:flex;justify-content:space-between;align-items:center">'
+      + '<div style="font-size:14px;font-weight:600;color:var(--text)">🏷️ 合計</div>'
+      + '<div style="text-align:right"><div style="font-size:22px;font-weight:700;color:#C0392B">¥'+rd.total.toLocaleString()+'</div>'
+      + '<div style="font-size:14px;color:#E67E22;font-weight:600">≈ NT$ '+Math.round(rd.total*rate).toLocaleString()+'</div></div></div>';
+    if(rd.tax) h += '<div style="font-size:12px;color:var(--muted);margin-top:4px">含消費稅 ¥'+rd.tax.toLocaleString()+'</div>';
+    h += '</div>';
+    // 加入消費記錄按鈕
+    var dOpts=['6/21','6/22','6/23','6/24','6/25','6/26','6/27','其他'].map(function(d){return '<option value="'+d+'">'+d+'</option>';}).join('');
+    h += '<div style="margin-top:10px;display:flex;gap:6px;align-items:center">'
+      + '<select id="receiptDateSel" style="flex:1;padding:9px;border:0.5px solid var(--border);border-radius:9px;font-size:13px;background:var(--card);color:var(--text);font-family:inherit">'+dOpts+'</select>'
+      + '<button onclick="addExpenseFromReceipt(document.getElementById(\'receiptDateSel\').value)" style="flex:1;border:none;border-radius:9px;padding:10px;background:#27AE60;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">💰 加入記錄</button>'
+      + '</div>';
+    h += '<button onclick="S.camT=\'\';S.camImg=null;S.receiptData=null;showModal(camHTML())" style="width:100%;margin-top:8px;border:0.5px solid var(--border);border-radius:9px;padding:9px;background:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit">🔄 重新拍攝</button>';
+    h += '</div>';
+  }
+
+  // ── 翻譯結果 ──
+  if(S.camT && S.camT!=='' && mode==='translate' && !S.camL){
+    h += '<div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:10px">';
+    h += '<div style="font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px">'+curPair.label+' 翻譯結果</div>';
+    h += '<div style="font-size:14.5px;color:var(--text);line-height:1.85;white-space:pre-wrap">'+S.camT+'</div>';
+    h += '</div>';
+    h += '<button onclick="if(navigator.clipboard)navigator.clipboard.writeText(S.camT).then(function(){showToast(\'📋 已複製！\')})" style="width:100%;border:0.5px solid var(--border);border-radius:9px;padding:9px;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--muted);margin-bottom:6px">📋 複製翻譯結果</button>';
+    h += '<button onclick="S.camT=\'\';S.camImg=null;showModal(camHTML())" style="width:100%;border:0.5px solid var(--border);border-radius:9px;padding:8px;background:none;color:var(--muted);font-size:12.5px;cursor:pointer;font-family:inherit">🔄 重新拍攝</button>';
+  }
+
+  // ── 文字辨識結果 ──
+  if(S.camT && S.camT!=='' && mode==='text' && !S.camL){
+    h += '<div style="background:var(--surface);border-radius:10px;padding:12px;font-size:13.5px;white-space:pre-wrap;line-height:1.85;color:var(--text);max-height:300px;overflow-y:auto">'+S.camT+'</div>';
+    h += '<button onclick="if(navigator.clipboard)navigator.clipboard.writeText(S.camT).then(function(){showToast(\'📋 已複製！\')})" style="width:100%;margin-top:8px;border:0.5px solid var(--border);border-radius:8px;padding:9px;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--muted)">📋 複製結果</button>';
+    h += '<button onclick="S.camT=\'\';S.camImg=null;showModal(camHTML())" style="width:100%;margin-top:6px;border:0.5px solid var(--border);border-radius:9px;padding:8px;background:none;color:var(--muted);font-size:12.5px;cursor:pointer;font-family:inherit">🔄 重新拍攝</button>';
+  }
+
+  h += '</div>';
+  return h;
+}
+window.openCam=function(){S.camT='';S.camL=false;S.camImg=null;S.receiptData=null;showModal(camHTML());};
+
+// 本地翻譯輔助字典（日文常見詞→繁體中文）
+var JPN2ZH = {
+  // ── 發票基本詞彙 ──
+  '合計':'合計','小計':'小計','消費税':'消費稅','消費税等':'消費稅',
+  '内税':'含稅','税込':'含稅','税抜':'未稅','非課税':'免稅',
+  '軽減税率':'輕減稅率','標準税率':'標準稅率','免税':'免稅',
+  '割引':'折扣','クーポン':'優惠券','ポイント':'點數',
+  '値引':'折扣','お釣り':'找零','領収書':'收據','レシート':'收據',
+  '領収':'收據','精算':'結算','支払':'付款','お支払':'付款',
+  'nanaco':'nanaco點數','Suica':'Suica','PayPay':'PayPay',
+  '現金':'現金','カード':'信用卡','電子マネー':'電子錢包',
+  'お買上':'購買','ありがとう':'謝謝','またのご来店':'歡迎再來',
+
+  // ── 7-11 / 便利商店常見商品 ──
+  'おにぎり':'飯糰','お握り':'飯糰','手巻':'手捲',
+  '辛子明太子':'辣明太子','明太子':'明太子',
+  'ツナマヨ':'鮪魚美乃滋','梅':'梅子','鮭':'鮭魚',
+  'サンドイッチ':'三明治','サンド':'三明治',
+  'コンビニ':'便利商店','弁当':'便當','お弁当':'便當',
+  'パン':'麵包','食パン':'吐司','メロンパン':'哈密瓜麵包',
+  'クロワッサン':'可頌','蒸しパン':'蒸麵包',
+  'うどん':'烏龍麵','そば':'蕎麥麵','ラーメン':'拉麵',
+  'パスタ':'義大利麵','そうめん':'素麵',
+  'コカコーラ':'可口可樂','コーラ':'可樂','コーヒー':'咖啡',
+  '緑茶':'綠茶','お茶':'茶','麦茶':'大麥茶','烏龍茶':'烏龍茶',
+  'ジュース':'果汁','水':'水','ミネラルウォーター':'礦泉水',
+  'ビール':'啤酒','酒':'酒','ワイン':'葡萄酒',
+  'ヨーグルト':'優格','牛乳':'牛奶','豆乳':'豆漿',
+  'アイスコーヒー':'冰咖啡','ホットコーヒー':'熱咖啡',
+  'カフェラテ':'拿鐵','抹茶':'抹茶',
+
+  // ── 食品 ──
+  '肉':'肉','鶏':'雞肉','豚':'豬肉','牛':'牛肉',
+  '魚':'魚','鮭魚':'鮭魚','まぐろ':'鮪魚','サーモン':'鮭魚',
+  '野菜':'蔬菜','果物':'水果','卵':'雞蛋','チーズ':'起司',
+  'バター':'奶油','マーガリン':'人造奶油',
+  'お菓子':'零食','菓子':'零食','チョコ':'巧克力',
+  'チョコレート':'巧克力','クッキー':'餅乾','ケーキ':'蛋糕',
+  'アイス':'冰淇淋','アイスクリーム':'冰淇淋',
+  'グミ':'軟糖','キャンディ':'糖果','ガム':'口香糖',
+  'ポテトチップス':'洋芋片','スナック':'零食',
+  'のり':'海苔','わさび':'山葵','醤油':'醬油',
+  '味噌':'味噌','塩':'鹽','砂糖':'砂糖','油':'食用油',
+  'マヨネーズ':'美乃滋','ケチャップ':'番茄醬',
+
+  // ── 片假名常見食品（英文外來語）──
+  'コーンスープ':'玉米濃湯','ポタージュ':'濃湯',
+  'サラダ':'沙拉','シーザーサラダ':'凱薩沙拉',
+  'ハンバーガー':'漢堡','バーガー':'漢堡',
+  'ホットドッグ':'熱狗','ピザ':'披薩','ドーナツ':'甜甜圈',
+  'プリン':'布丁','ゼリー':'果凍','ムース':'慕斯',
+  'ワッフル':'鬆餅','パンケーキ':'鬆餅','クレープ':'可麗餅',
+  'タピオカ':'珍珠奶茶','バブルティー':'珍珠奶茶',
+  'フラペチーノ':'星冰樂',
+
+  // ── 藥妝 / 日用品 ──
+  '薬':'藥品','医薬品':'醫藥品','サプリ':'保健品',
+  'ビタミン':'維他命','コラーゲン':'膠原蛋白',
+  'マスク':'口罩','絆創膏':'OK繃','湿布':'貼布',
+  '洗顔':'洗臉','化粧水':'化妝水','乳液':'乳液',
+  '日焼け止め':'防曬乳','シャンプー':'洗髮精',
+  'コンディショナー':'潤髮乳','ボディソープ':'沐浴乳',
+  '歯ブラシ':'牙刷','歯磨き粉':'牙膏',
+  'ティッシュ':'面紙','トイレットペーパー':'衛生紙',
+  '洗剤':'洗潔劑','柔軟剤':'柔軟精',
+  '電池':'電池','充電器':'充電器',
+  '文具':'文具','ノート':'筆記本','ペン':'筆',
+
+  // ── 衣物配件 ──
+  '靴':'鞋子','靴下':'襪子','スニーカー':'運動鞋',
+  '服':'衣服','Tシャツ':'T恤','ジャケット':'外套',
+  'バッグ':'包包','財布':'錢包','傘':'雨傘',
+  '帽子':'帽子','手袋':'手套','マフラー':'圍巾',
+
+  // ── 地點 / 店名 ──
+  'ローソン':'Lawson','セブン-イレブン':'7-11',
+  'ファミリーマート':'全家','ドラッグストア':'藥妝店',
+  'スーパー':'超市','百貨店':'百貨公司',
+  'コンビニ':'便利商店',
+
+  // ── 數量單位 ──
+  '個':'個','本':'瓶/支','袋':'袋','箱':'盒','枚':'張',
+  '冊':'本','杯':'杯','皿':'盤','缶':'罐',
+
+  // ── 常見形容詞 ──
+  '新発売':'新品','限定':'限定','セール':'特賣',
+  '割引':'折扣','お得':'划算','特価':'特價',
+  'SALE':'特賣','OFF':'折扣',
+
+  // ── 郵政 / 其他 ──
+  '切手':'郵票','封筒':'信封','はがき':'明信片',
+  'コピー':'影印','印刷':'列印',
+
+  // ── 年月日時間 ──
+  '年':'年','月':'月','日':'日','時':'時','分':'分',
+  '午前':'上午','午後':'下午',
+  '月曜日':'星期一','火曜日':'星期二','水曜日':'星期三',
+  '木曜日':'星期四','金曜日':'星期五',
+  '土曜日':'星期六','日曜日':'星期日',
+  '（月）':'（一）','（火）':'（二）','（水）':'（三）',
+  '（木）':'（四）','（金）':'（五）','（土）':'（六）','（日）':'（日）',
+};
+function localTranslate(text, direction){
+  if(!text) return text;
+  if(direction==='jpn2zh'){
+    var result = text;
+    // 1. 先替換完整詞組（較長的先替換，避免短詞覆蓋）
+    var keys = Object.keys(JPN2ZH).sort(function(a,b){return b.length-a.length;});
+    keys.forEach(function(k){
+      result = result.replace(new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), JPN2ZH[k]);
+    });
+    // 2. 清理多餘符號與空白
+    result = result.replace(/\s{2,}/g,' ').trim();
+    return result;
+  }
+  return text;
+}
+
+// 翻譯商品名稱（用於發票）
+function translateItemName(name){
+  if(!name) return name;
+  var translated = localTranslate(name, 'jpn2zh');
+  // 若翻譯後和原文差異很小，補充說明
+  return translated;
+}
+
+window.handleCam=async function(input){
+  var file=input.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=async function(ev){
+    S.camImg=ev.target.result;
+    S.camL=true; S.camT=''; S.receiptData=null;
+    showModal(camHTML());
+    var mode=S.camMode||'receipt';
+    var tm=S.translateMode||'jpn2zh';
+    if(typeof Tesseract==='undefined'){
+      S.camL=false; S.camT='⚠️ OCR 模組載入中，請稍候再試'; showModal(camHTML()); return;
+    }
+    function updateProgress(p,msg){
+      var bar=document.getElementById('ocrBar');
+      var txt=document.getElementById('ocrProgress');
+      if(bar) bar.style.width=Math.round(p*100)+'%';
+      if(txt) txt.textContent=msg||'辨識中…';
+    }
+    try{
+      // ══ 強化影像前處理：轉為高對比黑白（大幅提升收據辨識率）══
+      var processedImg=await new Promise(function(resolve){
+        var img=new Image();
+        img.onload=function(){
+          var canvas=document.createElement('canvas');
+          // 放大到最佳辨識解析度（收據最佳 2000~3000px 高）
+          var targetH=Math.max(img.height, 2400);
+          var scale=Math.min(4, targetH/img.height);
+          canvas.width=Math.round(img.width*scale);
+          canvas.height=Math.round(img.height*scale);
+          var ctx=canvas.getContext('2d');
+          // 白色背景（避免透明黑背景）
+          ctx.fillStyle='#ffffff';
+          ctx.fillRect(0,0,canvas.width,canvas.height);
+          ctx.drawImage(img,0,0,canvas.width,canvas.height);
+          // 取像素資料
+          var id=ctx.getImageData(0,0,canvas.width,canvas.height);
+          var d=id.data;
+          for(var i=0;i<d.length;i+=4){
+            // 轉灰階
+            var g=0.299*d[i]+0.587*d[i+1]+0.114*d[i+2];
+            // 自適應二值化（Threshold）：讓文字更清晰
+            // 深色文字在淺色背景：threshold=140
+            g=g<160?0:255;  // 純黑白，160 最適合熱感紙收據
+            d[i]=d[i+1]=d[i+2]=g; d[i+3]=255;
+          }
+          ctx.putImageData(id,0,0);
+          // 額外：銳化（Unsharp Mask 近似）
+          resolve(canvas.toDataURL('image/png'));
+        };
+        img.src=ev.target.result;
+      });
+
+      // 語言設定
+      var langMap={'jpn2zh':'jpn','zh2jpn':'chi_tra','eng2jpn':'eng','jpn2eng':'jpn','zh2eng':'chi_tra','eng2zh':'eng'};
+      var srcLang=mode==='translate'?(langMap[tm]||'jpn'):'jpn+eng';
+
+      updateProgress(0.05,'初始化…');
+      var result=await Tesseract.recognize(processedImg, srcLang, {
+        logger:function(m){
+          if(m.status==='loading language traineddata') updateProgress(0.1,'載入語言包（首次約需30秒）…');
+          else if(m.status==='recognizing text') updateProgress(0.2+m.progress*0.75,'辨識文字 '+Math.round(m.progress*100)+'%');
+        }
+      });
+
+      var rawText=(result.data.text||'').trim();
+      // 取得每行的詳細資料（含座標，用於判斷金額位置）
+      var rawLines=result.data.lines||[];
+
+      if(mode==='receipt'){
+        // ══════════════════════════════════════════════════════
+        // 新策略：雙軌制解析
+        // 軌1：精準正規表達式直接抓 ¥金額 （最可靠）
+        // 軌2：逐行分析找行末數字（備援）
+        // ══════════════════════════════════════════════════════
+        var items=[], discounts=[], total=0, tax=0;
+
+        // ── 軌1：找所有 ¥XXX 或 ￥XXX 金額（最準確）──
+        var yenPattern=/[¥￥]\s*(\d{1,3}(?:,\d{3})*|\d{1,6})/g;
+        var foundAmounts=[];
+        var mm;
+        while((mm=yenPattern.exec(rawText))!==null){
+          var n=parseInt(mm[1].replace(/,/g,''));
+          if(n>=10&&n<=200000) foundAmounts.push(n);
+        }
+
+        // ── 軌2：行末 3~6 位數字（無¥符號的收據）──
+        if(foundAmounts.length===0){
+          rawText.split('\n').forEach(function(line){
+            var cl=line.trim();
+            if(!cl||cl.length<2) return;
+            // 跳過日期、電話、代碼行
+            if(/\d{4}[-\/]\d{1,2}[-\/]\d{1,2}/.test(cl)) return;
+            if(/^\d{5,}$/.test(cl)) return;
+            var tail=cl.match(/(\d{3,6})\s*$/);
+            if(tail){
+              var n=parseInt(tail[1]);
+              if(n>=50&&n<=200000) foundAmounts.push(n);
+            }
+          });
+        }
+
+        if(foundAmounts.length===0){
+          // 完全辨識不到金額
+          S.camT='⚠️ 未能辨識到金額\n\n💡 建議：\n① 發票放平、光線充足再重拍\n② 拍攝時讓發票充滿畫面\n③ 可點「手動新增」直接輸入金額\n\n原始辨識文字：\n'+rawText.slice(0,300);
+        } else {
+          // ── 找合計：最大值通常是合計 ──
+          var sortedAmts=foundAmounts.slice().sort(function(a,b){return b-a;});
+          total=sortedAmts[0]; // 最大金額視為合計
+
+          // ── 找稅額：通常是帶有消費税字樣旁邊的金額 ──
+          var taxLine=rawText.split('\n').find(function(l){return /消費税|税額|税/.test(l);});
+          if(taxLine){
+            var taxM=taxLine.match(/(\d{1,4})/);
+            if(taxM) tax=parseInt(taxM[1]);
+          }
+
+          // ── 建立商品清單 ──
+          // 去除合計金額，其餘作為商品金額
+          var itemAmts=foundAmounts.filter(function(n){return n!==total;});
+          // 去除稅金
+          if(tax>0) itemAmts=itemAmts.filter(function(n){return n!==tax;});
+          // 去除重複
+          var seen={};
+          itemAmts=itemAmts.filter(function(n){
+            var k=n+'';
+            if(seen[k]) return false;
+            seen[k]=true; return true;
+          });
+
+          // ── 嘗試從文字行找商品名稱 ──
+          // 策略：找包含¥金額的行，取¥之前的文字作為名稱
+          var nameMap={};
+          rawText.split('\n').forEach(function(line){
+            var cl=line.trim();
+            // 找 ¥金額
+            var mAmt=cl.match(/[¥￥]\s*(\d{1,3}(?:,\d{3})*|\d{1,6})\s*$/);
+            if(!mAmt) mAmt=cl.match(/\s(\d{3,6})\s*$/);
+            if(!mAmt) return;
+            var n=parseInt((mAmt[1]||'').replace(/,/g,''));
+            if(n<10||n>200000) return;
+            // 取名稱
+            var rawName=cl.replace(/[¥￥]\s*\d{1,3}(?:,\d{3})*\s*$/,'')
+                           .replace(/\s*\d{3,6}\s*$/,'')
+                           .replace(/[*＊※]/g,'').trim();
+            if(rawName.length>=1){
+              // 翻譯名稱
+              var zhName=translateItemName(rawName);
+              // 過濾亂碼：若包含太多無意義字元，用簡短描述
+              var isGibberish=(zhName.replace(/[\u3040-\u30ff\u4e00-\u9fff\w\s！-／]/g,'').length>zhName.length*0.4);
+              if(!isGibberish&&zhName.length>=2&&zhName.length<=30){
+                nameMap[n+'']=(nameMap[n+'']||zhName);
+              }
+            }
+          });
+
+          // ── 組裝商品清單 ──
+          itemAmts.forEach(function(amt,idx){
+            var name=nameMap[amt+'']||('商品 '+(idx+1));
+            items.push({name:name, jpy:amt, editable:true});
+          });
+
+          // ── 驗算：若各項加總接近合計則良好 ──
+          var sumItems=items.reduce(function(s,i){return s+i.jpy;},0);
+          var sumDisc=discounts.reduce(function(s,d){return s+d.jpy;},0);
+          // 若加總嚴重偏離，用合計值直接顯示
+          var accuracy=total>0?Math.abs(sumItems-sumDisc-total)/total:1;
+        }
+
+        if(items.length>0||total>0){
+          S.receiptData={items:items,discounts:discounts,total:total,tax:tax,rawText:rawText};
+          S.camT='__RECEIPT_OK__';
+        } else {
+          // 辨識到文字但抓不到金額 → 顯示原始文字讓使用者參考
+          S.camT='⚠️ 未能辨識到收據金額\n\n📋 辨識到的文字：\n'+rawText.slice(0,600)
+            +'\n\n💡 建議：\n• 確認發票正面朝上、光線充足\n• 嘗試「辨識」模式查看原始文字\n• 或手動新增金額';
+        }
+
+      } else if(mode==='translate'){
+        // 翻譯模式
+        if(tm==='jpn2zh'){
+          S.camT=localTranslate(rawText,'jpn2zh');
+        } else {
+          var dirLabel={zh2jpn:'繁中→日文',eng2jpn:'英→日',jpn2eng:'日→英',zh2eng:'繁中→英',eng2zh:'英→繁中'}[tm]||tm;
+          S.camT='【辨識文字】\n'+rawText+'\n\n💡 '+dirLabel+' 翻譯：\n請複製以上文字貼入 Google 翻譯';
+        }
+      } else {
+        // 文字辨識模式
+        S.camT=rawText||'未辨識到文字，請重新拍攝';
+      }
+
+    }catch(e2){
+      S.camT='⚠️ 辨識失敗：'+e2.message+'\n\n請確認圖片清晰，或重試';
+    }
+    S.camL=false; showModal(camHTML());
+  };
+  reader.readAsDataURL(file);
+};
+
+// ═══ SHEET EDIT / DELETE ═══
+window.delSheetItem = function(sid){
+  if(!confirm('確定刪除此筆試算表資料？\n（只影響 APP 顯示，不影響試算表本身）')) return;
+  if(!S.sheetDeleted) S.sheetDeleted = [];
+  if(S.sheetDeleted.indexOf(sid) < 0) S.sheetDeleted.push(sid);
+  saveState(); render(); showToast('✅ 已刪除（試算表本身不受影響）');
+};
+
+window.openSheetEdit = function(sid, idx){
+  var base = {};
+  if(S.sheetRows && S.sheetRows[idx]){
+    var r = S.sheetRows[idx];
+    base = {
+      id: sid, time: r._time||r['時間']||'12:00',
+      title: r._title||r['名稱']||r['景點/美食']||r['店名']||'',
+      type: r._type||'food', meal: r._meal||r['餐別']||null,
+      veg: r._veg||(r['素食']||'').toLowerCase()==='是',
+      nsf: r._nsf||(r['含魚']||'').toLowerCase()==='是',
+      addr: r._addr||r['地址']||'',
+      map: r._map||'',
+      desc: (function(){
+        var parts = [];
+        // 優先顯示已知說明欄位
+        var d = r._desc||r['說明']||r['備注']||r['備註']||r['介紹']||r['內容']||r['description']||'';
+        if(d) parts.push(d);
+        // 費用
+        var p = r._price||r['費用']||r['價格']||r['price']||'';
+        if(p) parts.push('💴 費用：'+p);
+        // 推薦/備注
+        var n = r['推薦']||r['推薦原因']||r['注意']||r['特色']||'';
+        if(n && n!==d) parts.push('💡 '+n);
+        // 行程日
+        var day = r._day||r['天']||r['日期']||r['Day']||r['行程日']||'';
+        if(day) parts.push('📅 行程日：'+day);
+        // 若都沒資料，把所有非空白欄位列出
+        if(parts.length===0){
+          var skip=['名稱','地址','位置','時間','餐別','素食','含魚','地圖連結','Maps','title','addr','time','meal','veg','nsf','map','type'];
+          Object.keys(r).forEach(function(k){
+            if(!k.startsWith('_') && r[k] && r[k].trim() && skip.indexOf(k)<0){
+              parts.push(k+'：'+r[k]);
+            }
+          });
+        }
+        return parts.join('\n');
+      })(),
+    };
+  }
+  // 套用已有的本地編輯
+  var edit = (S.sheetEdits||{})[sid];
+  if(edit) Object.assign(base, edit);
+  window._ea = Object.assign({}, base);
+  window._eaIsSheet = true;
+  window._eaSheetId = sid;
+  showModal(editHTML(window._ea, false, null));
+};
+
+window.saveSheetEdit = function(){
+  var act = window._ea;
+  if(!act.title.trim()){ showToast('⚠️ 請輸入標題！'); return; }
+  if(!S.sheetEdits) S.sheetEdits = {};
+  S.sheetEdits[window._eaSheetId] = {
+    time: act.time, title: act.title, type: act.type,
+    meal: act.meal, veg: act.veg, nsf: act.nsf,
+    addr: act.addr, map: act.map, desc: act.desc,
+  };
+  saveState(); closeModal(); render(); showToast('✅ 已儲存（本地）');
+};
+
+// ═══ PHOTO ═══
+window.openPhotoMenu = function(actId){
+  var hasPhoto = !!S.photos[actId];
+  var h = '<div class="mdrg"></div>'
+    + '<div class="mhdr"><div class="mtit">📷 相片</div>'
+    + '<button class="mclose" onclick="closeModal()">✕</button></div>'
+    + '<div class="sep"></div>'
+    + '<div class="mbody">';
+  if(hasPhoto){
+    h += '<img src="'+S.photos[actId]+'" alt="相片" style="width:100%;border-radius:10px;margin-bottom:12px;max-height:220px;object-fit:cover">';
+  }
+  h += '<input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none" onchange="handlePhotoUpload(\''+actId+'\',this)">'
+    + '<input type="file" id="photoGallery" accept="image/*" style="display:none" onchange="handlePhotoUpload(\''+actId+'\',this)">'
+    + '<button onclick="document.getElementById(\'photoInput\').click()" style="width:100%;border:none;border-radius:10px;padding:12px;background:#C0392B;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:8px"><i class="ti ti-camera" style="font-size:14px;vertical-align:-2px"></i> 拍照</button>'
+    + '<button onclick="document.getElementById(\'photoGallery\').click()" style="width:100%;border:0.5px solid var(--border);border-radius:10px;padding:12px;background:none;color:var(--text);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;margin-bottom:8px"><i class="ti ti-photo" style="font-size:14px;vertical-align:-2px"></i> 從相簿選取</button>';
+  if(hasPhoto){
+    h += '<button onclick="deletePhoto(\''+actId+'\')" style="width:100%;border:0.5px solid #C0392B;border-radius:10px;padding:10px;background:none;color:#C0392B;font-size:13px;cursor:pointer;font-family:inherit">🗑️ 刪除相片</button>';
+  }
+  h += '</div>';
+  showModal(h);
+};
+
+window.handlePhotoUpload = function(actId, input){
+  var file = input.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    // 壓縮圖片（最大 800px，品質 0.75）
+    var img = new Image();
+    img.onload = function(){
+      var canvas = document.createElement('canvas');
+      var maxW = 800, maxH = 800;
+      var w = img.width, h = img.height;
+      if(w > maxW){ h = h*(maxW/w); w = maxW; }
+      if(h > maxH){ w = w*(maxH/h); h = maxH; }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      S.photos[actId] = canvas.toDataURL('image/jpeg', 0.75);
+      saveState(); closeModal(); render();
+      showToast('✅ 相片已加入！');
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+};
+
+window.deletePhoto = function(actId){
+  if(!confirm('確定刪除此相片？')) return;
+  delete S.photos[actId];
+  saveState(); closeModal(); render(); showToast('✅ 相片已刪除');
+};
+
+// ═══ PAID ITEMS CRUD ═══
+function getPaid(){ return S.paidItems || DEFAULT_PAID; }
+function setPaid(arr){ S.paidItems=arr; saveState(); }
+
+window.openAddPaid = function(){
+  window._paidEdit={label:'',amt:0,unit:'NT$',note:''};
+  window._paidIdx=-1;
+  showModal(paidEditHTML());
+};
+window.openEditPaid = function(idx){
+  var paid=getPaid();
+  window._paidEdit=Object.assign({},paid[idx]);
+  window._paidIdx=idx;
+  showModal(paidEditHTML());
+};
+function paidEditHTML(){
+  var p=window._paidEdit||{};
+  var isNew=window._paidIdx===-1;
+  return '<div class="mdrg"></div>'
+    +'<div class="mhdr"><div class="mtit">'+(isNew?'＋ 新增固定支出':'✏️ 編輯固定支出')+'</div>'
+    +'<button class="mclose" onclick="closeModal()">✕</button></div>'
+    +'<div class="sep"></div><div class="mbody">'
+    +'<div class="fl">🏷️ 項目名稱</div>'
+    +'<input class="fi" type="text" id="paidLabel" value="'+(p.label||'')+'" placeholder="例：✈️ 機票、🏨 住宿" oninput="window._paidEdit.label=this.value">'
+    +'<div class="fl">💰 幣別</div>'
+    +'<select class="fi" id="paidUnit" onchange="window._paidEdit.unit=this.value" style="margin-bottom:9px">'
+    +'<option value="NT$"'+(p.unit==='NT$'?' selected':'')+'>NT$（台幣）</option>'
+    +'<option value="¥"'+(p.unit==='¥'?' selected':'')+'>¥（日圓）</option>'
+    +'</select>'
+    +'<div class="fl">💵 金額</div>'
+    +'<input class="fi" type="number" id="paidAmt" value="'+(p.amt||0)+'" placeholder="例：88858" oninput="window._paidEdit.amt=parseInt(this.value)||0">'
+    +'<div class="fl">📝 備注（選填）</div>'
+    +'<input class="fi" type="text" id="paidNote" value="'+(p.note||'')+'" placeholder="例：5人合計" oninput="window._paidEdit.note=this.value">'
+    +'<button onclick="savePaid()" style="width:100%;border:none;border-radius:10px;padding:12px;background:#27AE60;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">'+(isNew?'✅ 確認新增':'✅ 儲存變更')+'</button>'
+    +'</div>';
+}
+window.savePaid = function(){
+  var p=window._paidEdit||{};
+  var label=(p.label||document.getElementById('paidLabel').value||'').trim();
+  var amt=parseInt(p.amt||document.getElementById('paidAmt').value||0);
+  var unit=p.unit||document.getElementById('paidUnit').value||'NT$';
+  var note=(p.note||document.getElementById('paidNote').value||'').trim();
+  if(!label){showToast('⚠️ 請輸入項目名稱');return;}
+  if(!amt||amt<=0){showToast('⚠️ 請輸入有效金額');return;}
+  var paid=JSON.parse(JSON.stringify(getPaid()));
+  var newItem={label:label,amt:amt,unit:unit,note:note};
+  if(window._paidIdx===-1) paid.push(newItem);
+  else paid[window._paidIdx]=newItem;
+  setPaid(paid);
+  closeModal();render();
+  showToast(window._paidIdx===-1?'✅ 已新增！':'✅ 已儲存！');
+};
+window.delPaid = function(idx){
+  var paid=getPaid();
+  if(!confirm('確定刪除「'+(paid[idx]&&paid[idx].label||'此項目')+'」？'))return;
+  paid=JSON.parse(JSON.stringify(paid));
+  paid.splice(idx,1);
+  setPaid(paid);render();showToast('✅ 已刪除');
+};
+
+// ═══ EXPENSE TRACKER ═══
+window.openAddExpense = function(){
+  var today = new Date();
+  // 旅行期間日期選項
+  var dateOpts = ['6/21','6/22','6/23','6/24','6/25','6/26','6/27','其他'].map(function(d){
+    return '<option value="'+d+'">'+d+'</option>';
+  }).join('');
+  var h = '<div class="mdrg"></div>'
+    + '<div class="mhdr"><div class="mtit">＋ 新增消費</div><button class="mclose" onclick="closeModal()">✕</button></div>'
+    + '<div class="sep"></div><div class="mbody">'
+    + '<div class="fl">📅 消費日期</div>'
+    + '<select class="fi" id="expDate">' + dateOpts + '</select>'
+    + '<div class="fl">🏷️ 消費項目</div>'
+    + '<input class="fi" type="text" id="expLabel" placeholder="例：藥妝採購、晚餐、交通費" oninput="window._expLabel=this.value">'
+    + '<div class="fl">💴 金額（日圓 ¥）</div>'
+    + '<input class="fi" type="number" id="expJpy" placeholder="例：3500" oninput="window._expJpy=parseInt(this.value)||0">'
+    + '<div class="fl">📝 備注（選填）</div>'
+    + '<input class="fi" type="text" id="expNote" placeholder="例：藥妝店、スシロー" oninput="window._expNote=this.value">'
+    + '<button onclick="saveExpense()" style="width:100%;border:none;border-radius:10px;padding:12px;background:#C0392B;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">✅ 新增消費記錄</button>'
+    + '</div>';
+  window._expLabel=''; window._expJpy=0; window._expNote='';
+  showModal(h);
+};
+
+window.saveExpense = function(){
+  var date = (document.getElementById('expDate')||{}).value || '其他';
+  var label = (window._expLabel||'').trim() || ((document.getElementById('expLabel')||{}).value||'').trim() || '消費';
+  var jpy = parseInt((window._expJpy||0)) || parseInt(((document.getElementById('expJpy')||{}).value||'0')) || 0;
+  var note = (window._expNote||'').trim() || ((document.getElementById('expNote')||{}).value||'').trim();
+  if(!jpy || jpy <= 0){ showToast('⚠️ 請輸入有效金額'); return; }
+  if(!S.expenses) S.expenses=[];
+  S.expenses.push({date:date, label:label, jpy:jpy, note:note, ts:Date.now()});
+  saveState(); closeModal();
+  gTab(5); // 跳回預算頁
+  showToast('✅ 已新增 ¥'+jpy.toLocaleString()+' 消費記錄！');
+};
+
+window.openExpenseDetail = function(idx){
+  if(!S.expenses||idx<0||idx>=S.expenses.length) return;
+  var e2=S.expenses[idx], rate=S.jpyRate||0.22;
+  var twd=Math.round((e2.jpy||0)*rate);
+  var h='<div class="mdrg"></div>'
+    +'<div class="mhdr"><div class="mtit">🧾 消費明細</div>'
+    +'<button class="mclose" onclick="closeModal()">✕</button></div>'
+    +'<div class="sep"></div><div class="mbody">';
+
+  // 基本資訊卡
+  h+='<div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:10px">';
+  h+='<div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px">'+(e2.label||'消費')+'</div>';
+  h+='<div style="display:flex;justify-content:space-between;margin-bottom:4px">';
+  h+='<span style="font-size:13px;color:var(--muted)">📅 日期</span>';
+  h+='<span style="font-size:13px;font-weight:500;color:var(--text)">'+(e2.date||'未知')+'</span></div>';
+  h+='<div style="display:flex;justify-content:space-between;margin-bottom:4px">';
+  h+='<span style="font-size:13px;color:var(--muted)">💴 日圓金額</span>';
+  h+='<span style="font-size:15px;font-weight:700;color:#C0392B">¥'+(e2.jpy||0).toLocaleString()+'</span></div>';
+  h+='<div style="display:flex;justify-content:space-between">';
+  h+='<span style="font-size:13px;color:var(--muted)">💵 台幣換算</span>';
+  h+='<span style="font-size:15px;font-weight:700;color:#E67E22">≈ NT$ '+twd.toLocaleString()+'</span></div>';
+  if(e2.note) h+='<div style="margin-top:8px;padding-top:8px;border-top:0.5px solid var(--border);font-size:13px;color:var(--muted)">📝 '+e2.note+'</div>';
+  h+='</div>';
+
+  // 發票明細（如果有）
+  if(e2.items && e2.items.length>0){
+    h+='<div class="card">';
+    h+='<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px">🧾 發票明細（'+e2.items.length+'項）</div>';
+    e2.items.forEach(function(item){
+      var itwd=Math.round((item.jpy||0)*rate);
+      h+='<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:0.5px solid var(--surface)">';
+      h+='<div style="flex:1;font-size:13px;color:var(--text)">'+item.name+'</div>';
+      h+='<div style="text-align:right;flex-shrink:0">';
+      h+='<div style="font-size:13px;font-weight:600;color:var(--text)">¥'+(item.jpy||0).toLocaleString()+'</div>';
+      h+='<div style="font-size:11px;color:var(--muted)">≈NT$'+itwd.toLocaleString()+'</div>';
+      h+='</div></div>';
+    });
+    if(e2.discounts&&e2.discounts.length>0){
+      e2.discounts.forEach(function(d){
+        h+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:0.5px solid var(--surface)">';
+        h+='<div style="font-size:13px;color:#27AE60">'+d.name+'</div>';
+        h+='<div style="font-size:13px;font-weight:600;color:#27AE60">-¥'+Math.abs(d.jpy||0).toLocaleString()+'</div></div>';
+      });
+    }
+    h+='<div style="display:flex;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1.5px solid var(--border)">';
+    h+='<div style="font-size:14px;font-weight:600;color:var(--text)">合計</div>';
+    h+='<div style="text-align:right"><div style="font-size:18px;font-weight:700;color:#C0392B">¥'+(e2.jpy||0).toLocaleString()+'</div>';
+    h+='<div style="font-size:13px;color:#E67E22;font-weight:600">≈NT$ '+twd.toLocaleString()+'</div></div>';
+    h+='</div></div>';
+  }
+
+  h+='<button onclick="delExpense('+idx+');closeModal()" style="width:100%;border:0.5px solid #C0392B;border-radius:10px;padding:10px;background:none;color:#C0392B;font-size:13px;cursor:pointer;font-family:inherit">🗑️ 刪除此記錄</button>';
+  h+='</div>';
+  showModal(h);
+};
+
+window.delExpense = function(idx){
+  if(!S.expenses || idx<0 || idx>=S.expenses.length) return;
+  var item = S.expenses[idx];
+  if(!confirm('確定刪除「'+(item.label||'消費')+'」（¥'+(item.jpy||0).toLocaleString()+'）？')) return;
+  S.expenses.splice(idx, 1);
+  saveState(); render();
+  showToast('✅ 已刪除');
+};
+
+// 從發票掃描結果加入消費記錄（在 camHTML 的發票結果區塊呼叫）
+window.addExpenseFromReceipt = function(date){
+  if(!S.receiptData) return;
+  var rd = S.receiptData;
+  if(!S.expenses) S.expenses=[];
+  S.expenses.push({
+    date: date || '其他',
+    label: '🧾 發票掃描',
+    jpy: rd.total || 0,
+    note: (rd.items||[]).slice(0,3).map(function(i){return i.name;}).join('、'),
+    items: rd.items || [],
+    discounts: rd.discounts || [],
+    ts: Date.now()
+  });
+  saveState();
+  showToast('✅ 已加入消費記錄！');
+  // 跳到預算頁
+  closeModal();
+  gTab(5);
+};
+
+// ═══ ACTIONS ═══
+window.tFav=function(id){
+  S.favs.has(id)?S.favs.delete(id):S.favs.add(id);
+  saveState();render();
+  showToast(S.favs.has(id)?'\u2764\uFE0F \u5DF2\u52A0\u5165\u6700\u611B':'\uD83E\uDE77 \u5DF2\u79FB\u9664\u6700\u611B');
+};
+window.tDone=function(id){
+  S.done.has(id)?S.done.delete(id):S.done.add(id);
+  saveState();render();
+  showToast(S.done.has(id)?'\u2705 \u5DF2\u6A19\u8A18\u5B8C\u6210\uFF01':'\u21A9\uFE0F \u5DF2\u53D6\u6D88\u5B8C\u6210');
+};
+window.cpAct=function(id){
+  var r=findAct(id);
+  var a=r?r.act:null;
+  if(!a&&typeof id==='string'&&id.indexOf('sh-')===0){
+    var ni=parseInt(id.replace('sh-',''));
+    if(!isNaN(ni)&&S.sheetRows&&S.sheetRows[ni]){
+      var sr=S.sheetRows[ni];
+      a={time:sr._time||'',title:sr._title||sr['\u540D\u7A31']||'',addr:sr._addr||sr['\u5730\u5740']||'',desc:sr._desc||sr['\u8AAA\u660E']||''};
+    }
+  }
+  if(!a)return;
+  var t='['+a.time+'] '+a.title+'\n\u{1F4CD} '+a.addr+'\n\n'+a.desc;
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){showToast('\uD83D\uDCCB \u5DF2\u8907\u88FD\uFF01');}).catch(function(){showToast('\uD83D\uDCCB \u8907\u88FD\u5B8C\u6210');});}
+};
+window.delAct=function(id,dayId){
+  var r=findAct(id);
+  if(!r||!confirm('\u78BA\u5B9A\u522A\u9664\u300C'+r.act.title+'\u300D\u55CE\uFF1F'))return;
+  DAYS.forEach(function(d){
+    if(d.id===dayId||d.id===parseInt(dayId))d.acts=d.acts.filter(function(a){return a.id!==id;});
+  });
+  render();showToast('\u2705 \u5DF2\u522A\u9664\u884C\u7A0B');
+};
+window.doSearch=function(v){
+  S.sq=v;
+  var scl=document.getElementById('SCL');
+  if(scl)scl.style.display=v?'block':'none';
+  render();
+};
+window.clearSearch=function(){
+  S.sq='';
+  var si=document.getElementById('SIN');
+  if(si)si.value='';
+  var scl=document.getElementById('SCL');
+  if(scl)scl.style.display='none';
+  render();
+};
+
+// ═══ SHEET IMPORT ═══
+var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1zTFFGaFuGc4-DM4N7cMpwCFejFSsR6q6FoYcSkR_n5g/gviz/tq?tqx=out:csv';
+
+window.autoFillSheetUrl = function(){
+  S.sheetUrl = SHEET_CSV_URL;
+  S.sheetErr = '';
+  saveState();
+  var inp = document.getElementById('sheetUrl');
+  if(inp){ inp.value = SHEET_CSV_URL; }
+  showToast('已填入連結，點「連結並匯入」開始！');
+  render();
+};
+
+window.openPasteCSV = function(){
+  var h = '<div class="mdrg"></div>'
+    + '<div class="mhdr"><div class="mtit">📥 匯入資料</div>'
+    + '<button class="mclose" onclick="closeModal()">✕</button></div>'
+    + '<div class="sep"></div><div class="mbody">'
+
+    // ── 方法1：上傳 Excel / CSV 檔案 ──
+    + '<div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:12px">'
+    + '<div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px">📂 方法1：直接上傳檔案</div>'
+    + '<div style="font-size:12.5px;color:var(--muted);margin-bottom:10px">支援 <b>.xlsx</b>、<b>.xls</b>、<b>.csv</b> 格式</div>'
+    + '<input type="file" id="xlsxFileInput" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" style="display:none" onchange="handleFileImport(this)">'
+    + '<button onclick="document.getElementById(\'xlsxFileInput\').click()" style="width:100%;border:none;border-radius:10px;padding:12px;background:#27AE60;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">'
+    + '<i class="ti ti-file-spreadsheet" style="font-size:18px"></i> 選擇 Excel / CSV 檔案</button>'
+    + '</div>'
+
+    // ── 方法2：貼上 CSV 文字 ──
+    + '<div style="background:var(--surface);border-radius:12px;padding:14px;margin-bottom:12px">'
+    + '<div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px">📋 方法2：貼上 CSV 文字</div>'
+    + '<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">從試算表 Ctrl+A→Ctrl+C，貼到下方</div>'
+    + '<textarea id="csvPasteArea" class="fi" rows="5" style="font-size:12px;font-family:monospace;resize:vertical;margin-bottom:8px" placeholder="姓名,地址,說明&#10;中谷堂,橋本町29,現打麻糬&#10;..."></textarea>'
+    + '<button onclick="importFromPaste()" style="width:100%;border:none;border-radius:10px;padding:11px;background:#2980B9;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">✅ 匯入 CSV 文字</button>'
+    + '</div>'
+
+    // ── 方法3：Google 試算表 URL ──
+    + '<div style="background:var(--surface);border-radius:12px;padding:14px">'
+    + '<div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px">🔗 方法3：Google 試算表連結</div>'
+    + '<div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">需先「發布到網路」或設為「任何人可檢視」</div>'
+    + '<button onclick="autoFillSheetUrl();closeModal();setTimeout(function(){gTab(2);},100)" style="width:100%;border:none;border-radius:10px;padding:11px;background:#16A085;color:#fff;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:6px">🔗 使用我的試算表連結</button>'
+    + '<button onclick="closeModal();gTab(2)" style="width:100%;border:0.5px solid var(--border);border-radius:10px;padding:10px;background:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit">⚙️ 手動設定 URL</button>'
+    + '</div>'
+
+    + '</div>';
+  showModal(h);
+};
+
+
+window.handleFileImport = function(input){
+  var file = input.files[0];
+  if(!file){ showToast('⚠️ 請選擇檔案'); return; }
+  var name = file.name.toLowerCase();
+  var reader = new FileReader();
+
+  // CSV 檔案
+  if(name.endsWith('.csv')){
+    reader.onload = function(ev){
+      try{
+        var rows = parseCSV(ev.target.result);
+        processImportedRows(rows, file.name);
+      }catch(e){
+        showToast('❌ CSV 解析失敗：'+e.message);
+      }
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+  // Excel 檔案（需 SheetJS）
+  else if(name.endsWith('.xlsx')||name.endsWith('.xls')){
+    reader.onload = function(ev){
+      try{
+        if(typeof XLSX === 'undefined'){
+          showToast('❌ Excel 讀取模組載入中，請稍後再試');
+          return;
+        }
+        var data = new Uint8Array(ev.target.result);
+        var wb = XLSX.read(data, {type:'array'});
+        // 取第一個工作表
+        var wsName = wb.SheetNames[0];
+        var ws = wb.Sheets[wsName];
+        // 轉為 JSON（含標題列）
+        var json = XLSX.utils.sheet_to_json(ws, {defval:''});
+        if(json.length === 0){
+          // 嘗試取得標題
+          var csv = XLSX.utils.sheet_to_csv(ws);
+          var rows2 = parseCSV(csv);
+          processImportedRows(rows2, file.name);
+        } else {
+          // json 格式：每行是 {欄位名:值} 的物件
+          processImportedJSON(json, file.name);
+        }
+      }catch(e){
+        console.error('Excel error:', e);
+        showToast('❌ Excel 讀取失敗：'+e.message);
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    showToast('⚠️ 請選擇 .xlsx、.xls 或 .csv 檔案');
+  }
+  // 重置 input 讓同一檔案可重複選
+  input.value = '';
+};
+
+// 處理從 JSON（SheetJS sheet_to_json）匯入的資料
+window.processImportedJSON = function(json, filename){
+  if(!json||json.length===0){ showToast('⚠️ 檔案內容為空'); return; }
+  S.sheetRows = json.map(function(r){
+    // 統一映射欄位
+    r._title = r['名稱']||r['景點/美食']||r['店名']||r['地點']||r.title||'';
+    r._addr  = r['地址']||r['位置']||r.addr||'';
+    r._desc  = r['說明']||r['備注']||r['備註']||r['介紹']||r['內容']||r.desc||'';
+    r._time  = r['時間']||r['建議時間']||r.time||'';
+    r._meal  = r['餐別']||r['類別']||r.meal||'';
+    r._veg   = (r['素食']||r.veg||'').toString().toLowerCase()==='是'||r.veg===true;
+    r._nsf   = (r['含魚']||r.nsf||'').toString().toLowerCase()==='是'||r.nsf===true;
+    r._price = r['費用']||r['價格']||r.price||'';
+    r._day   = r['天']||r['日期']||r['Day']||r['行程日']||r.day||'';
+    r._type  = r['分類']||r['Type']||r.type||'food';
+    r._map   = r['地圖連結']||r['Maps']||r.map||(r._addr?'https://maps.google.com/?q='+encodeURIComponent(r._addr):'');
+    r._note  = r['注意']||r['推薦']||r['特色']||r.note||'';
+    return r;
+  }).filter(function(r){ return r._title; }); // 過濾沒有標題的行
+  S.sheetSyncTime = new Date().toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})+'（'+filename+'）';
+  S.sheetEdits = {}; S.sheetDeleted = [];
+  saveState(); closeModal(); render();
+  showToast('✅ 成功匯入 '+S.sheetRows.length+' 筆（'+filename+'）');
+};
+
+// 處理從 CSV rows 陣列匯入的資料
+window.processImportedRows = function(rows, filename){
+  if(!rows||rows.length<2){ showToast('⚠️ 檔案內容為空或格式錯誤'); return; }
+  var headers = rows[0].map(function(h){ return h.trim(); });
+  var json = rows.slice(1).filter(function(r){ return r.some(function(c){ return c.trim(); }); }).map(function(r){
+    var obj = {};
+    headers.forEach(function(h,i){ obj[h] = (r[i]||'').trim(); });
+    return obj;
+  });
+  processImportedJSON(json, filename);
+};
+
+window.importFromPaste = function(){
+  var txt = (document.getElementById('csvPasteArea')||{}).value || '';
+  if(!txt.trim()){ showToast('⚠️ 請先貼上資料'); return; }
+  try{
+    var rows = parseCSV(txt);
+    if(rows.length < 2) throw new Error('至少需要標題行 + 一筆資料');
+    var headers = rows[0].map(function(h){ return h.trim(); });
+    S.sheetRows = rows.slice(1).filter(function(r){ return r.some(function(c){ return c.trim(); }); }).map(function(r){
+      var obj = {};
+      headers.forEach(function(h,i){ obj[h] = (r[i]||'').trim(); });
+      obj._title = obj.title||obj['名稱']||obj['景點/美食']||obj['餐廳']||obj['地點']||obj['店名']||'';
+      obj._addr  = obj.addr||obj['地址']||obj['位置']||'';
+      obj._desc  = obj.desc||obj['說明']||obj['備注']||obj['備註']||obj['介紹']||'';
+      obj._time  = obj.time||obj['時間']||obj['建議時間']||'';
+      obj._meal  = obj.meal||obj['餐別']||'';
+      obj._veg   = (obj.veg||obj['素食']||'').toLowerCase()==='是'||obj.veg===true;
+      obj._nsf   = (obj.nsf||obj['含魚']||'').toLowerCase()==='是'||obj.nsf===true;
+      obj._price = obj.price||obj['費用']||obj['價格']||'';
+      obj._day   = obj.day||obj['天']||obj['日期']||obj['Day']||'';
+      obj._type  = obj.type||obj['分類']||'food';
+      obj._map   = obj.map||obj['地圖連結']||(obj._addr?'https://maps.google.com/?q='+encodeURIComponent(obj._addr):'');
+      return obj;
+    });
+    S.sheetSyncTime = new Date().toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}) + '（手動貼上）';
+    saveState();
+    document.getElementById('OV').className = 'ov';
+    render();
+    showToast('✅ 匯入 ' + S.sheetRows.length + ' 筆！');
+  } catch(e){
+    showToast('❌ ' + e.message);
+  }
+};
+
+window.importSheet = async function(){
+  var inputUrl = S.sheetUrl || (document.getElementById('sheetUrl')||{}).value || SHEET_CSV_URL;
+  var sheetId = null;
+  var idMatch = inputUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(idMatch) sheetId = idMatch[1];
+
+  // 建立多重嘗試 URL（含 CORS proxy 備援）
+  var tryUrls = [];
+  if(sheetId){
+    var directGviz   = 'https://docs.google.com/spreadsheets/d/'+sheetId+'/gviz/tq?tqx=out:csv';
+    var directExport = 'https://docs.google.com/spreadsheets/d/'+sheetId+'/export?format=csv&id='+sheetId;
+    var directPub    = 'https://docs.google.com/spreadsheets/d/'+sheetId+'/pub?output=csv';
+    // CORS proxy 備援（解決 GitHub Pages 跨域問題）
+    var proxy1 = 'https://corsproxy.io/?url='+encodeURIComponent(directGviz);
+    var proxy2 = 'https://api.allorigins.win/raw?url='+encodeURIComponent(directGviz);
+    var proxy3 = 'https://corsproxy.io/?url='+encodeURIComponent(directExport);
+    tryUrls = [directGviz, directExport, directPub, proxy1, proxy2, proxy3];
+  } else {
+    tryUrls = [inputUrl];
+  }
+
+  S.sheetErr = '';
+  showToast('⏳ 連線中…');
+
+  var csv = null, lastErr = '';
+  for(var ti=0; ti<tryUrls.length; ti++){
+    var tryUrl = tryUrls[ti];
+    try{
+      var res = await fetch(tryUrl, {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'omit',
+        cache: 'no-store'
+      });
+      if(!res.ok){ lastErr='HTTP '+res.status; continue; }
+      var text = await res.text();
+      if(!text||text.trim().length<5){ lastErr='回應為空'; continue; }
+      if(text.trim().startsWith('<!DOCTYPE')||text.trim().startsWith('<html')){
+        lastErr='需要登入或無存取權'; continue;
+      }
+      csv = text;
+      S.sheetUrl = tryUrl;
+      break;
+    }catch(e2){ lastErr=e2.message||'連線失敗'; continue; }
+  }
+
+  if(!csv){
+    S.sheetErr = '❌ 無法連線（'+lastErr+'）';
+    saveState(); render(); showToast('❌ 連線失敗'); return;
+  }
+
+  try{
+    var rows = parseCSV(csv);
+    if(rows.length < 2) throw new Error('試算表內容為空');
+    var headers = rows[0].map(function(h){ return h.trim(); });
+    S.sheetRows = rows.slice(1)
+      .filter(function(r){ return r.some(function(c){ return c.trim(); }); })
+      .map(function(r){
+        var obj = {};
+        headers.forEach(function(h,i){ obj[h] = (r[i]||'').trim(); });
+        obj._title = obj['名稱']||obj['景點/美食']||obj['店名']||obj['地點']||obj.title||'';
+        obj._addr  = obj['地址']||obj['位置']||obj.addr||'';
+        obj._desc  = obj['說明']||obj['備注']||obj['備註']||obj['介紹']||obj['內容']||obj.desc||'';
+        obj._time  = obj['時間']||obj['建議時間']||obj.time||'';
+        obj._meal  = obj['餐別']||obj['類別']||obj.meal||'';
+        obj._veg   = (obj['素食']||obj.veg||'').toLowerCase()==='是'||obj.veg===true;
+        obj._nsf   = (obj['含魚']||obj.nsf||'').toLowerCase()==='是'||obj.nsf===true;
+        obj._price = obj['費用']||obj['價格']||obj.price||'';
+        obj._day   = obj['天']||obj['日期']||obj['Day']||obj['行程日']||obj.day||'';
+        obj._type  = obj['分類']||obj['Type']||obj.type||'food';
+        obj._map   = obj['地圖連結']||obj['Maps']||obj.map||(obj._addr?'https://maps.google.com/?q='+encodeURIComponent(obj._addr):'');
+        obj._note  = obj['注意']||obj['推薦']||obj['特色']||obj.note||'';
+        return obj;
+      });
+    S.sheetSyncTime = new Date().toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    S.sheetEdits = {}; S.sheetDeleted = [];
+    saveState(); render();
+    showToast('✅ 匯入 '+S.sheetRows.length+' 筆！');
+  }catch(parseErr){
+    S.sheetErr = '解析失敗：'+parseErr.message;
+    saveState(); render(); showToast('❌ '+S.sheetErr);
+  }
+};
+function parseCSV(text){
+  var rows=[], row=[], cur='', inQ=false;
+  for(var i=0;i<text.length;i++){
+    var c=text[i];
+    if(inQ){if(c==='"'&&text[i+1]==='"'){cur+='"';i++;}else if(c==='"'){inQ=false;}else cur+=c;}
+    else if(c==='"'){inQ=true;}
+    else if(c===','){row.push(cur);cur='';}
+    else if(c==='\n'||c==='\r'){
+      row.push(cur);cur='';
+      if(row.some(function(x){return x.trim();}))rows.push(row);
+      row=[];
+      if(c==='\r'&&text[i+1]==='\n')i++;
+    }else cur+=c;
+  }
+  if(cur||row.length)row.push(cur);
+  if(row.some(function(x){return x.trim();}))rows.push(row);
+  return rows;
+}
+
+// ═══ INIT ═══
+loadState();
+// 啟動時若已有試算表連結，靜默更新
+if(S.sheetUrl&&navigator.onLine){
+  setTimeout(function(){
+    importSheet().then(function(){if(S.sheetRows&&S.sheetRows.length)showToast('📊 試算表已更新 '+S.sheetRows.length+' 筆');}).catch(function(){});
+  }, 2000);
+}
+
+// Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js?v=3').then(function(r){console.log('SW registered:',r.scope);}).catch(function(e){console.log('SW error:',e);});
+  });
+}
+
+// PWA install prompt
+var deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault();deferredPrompt=e;
+  var banner=document.getElementById('installBanner');
+  if(banner)banner.classList.add('show');
+});
+
+// Countdown tick
+
+// ── TOP 按鈕 ──
+function onCtScroll(el){
+  var btn=document.getElementById('topBtn');
+  if(!btn)return;
+  btn.style.display=el.scrollTop>200?'flex':'none';
+}
+function scrollToTop(){
+  var ct=document.getElementById('CT');
+  if(ct)ct.scrollTo({top:0,behavior:'smooth'});
+}
+
+setInterval(function(){if(S.tab===0)render();},1000);
+
+render();
+</script>
+</body>
+</html>
